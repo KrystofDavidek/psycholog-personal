@@ -2,8 +2,7 @@ import "../styles/globals.css";
 import "tailwindcss/tailwind.css";
 
 import { AppProps } from "next/app";
-import Image from "next/image";
-import Navbar from "./components/Navbar";
+import Navbar from "../components/Navbar";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -12,11 +11,22 @@ export default function App({ Component, pageProps }: AppProps) {
       <main className="flex flex-col justify-between min-h-max">
         <Component {...pageProps} />
       </main>
-      <footer className="flex justify-between m-8 mt-auto min-w-max">
-        <div>
-          <span className="text-sm">© 2022 Mgr. Kryštof Davídek.</span>
+      <footer className="flex flex-wrap-reverse items-center justify-between mt-auto">
+        <div className="m-1 sm:mb-5 md:mx-5 xl:mx-15 xl:px-20">
+          <p className="text-sm">© 2022 Mgr. Kryštof Davídek.</p>
         </div>
-        <div>E-mail: davidek.email@gmail.com, Tel: 734 574 243</div>
+        <div className="m-1 sm:mb-5 md:mx-5 xl:mx-15 xl:px-20">
+          <p className="text-xl md:text-[2rem]">
+            <span>E-mail: </span>
+            <a href="mailto: davidek.email@gmail.com" className="text-font-green">
+              davidek.email@gmail.com
+            </a>
+            <span>, Tel: </span>
+            <a href="tel:734574243" className="text-font-green">
+              734 574 243
+            </a>
+          </p>
+        </div>
       </footer>
     </div>
   );
