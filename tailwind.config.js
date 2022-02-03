@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         "font-green": "#7D990C",
       },
+      backgroundImage: {
+        motive: "url('/images/motiv.jpg')",
+      },
     },
   },
   variants: {

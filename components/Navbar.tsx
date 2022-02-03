@@ -17,7 +17,12 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
   return activeItem !== name ? (
     <Link href={route}>
       <a className="transition duration-500 hover:scale-120">
-        <span onClick={() => setActiveItem(name)} className={`${!isSide && "hover:text-font-green"}`}>
+        <span
+          onClick={() => {
+            setActiveItem(name);
+          }}
+          className={`${!isSide && "hover:text-font-green"}`}
+        >
           {name}
         </span>
       </a>
@@ -37,11 +42,15 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
 
 const Navbar = () => {
   const [isSideMenuOpen, setisSideMenuOpen] = useState(false);
-  const showSideMenu = () => {
+  const toggleSideMenu = () => {
     isSideMenuOpen ? setisSideMenuOpen(false) : setisSideMenuOpen(true);
   };
   const [activeItem, setActiveItem] = useState<string>("Úvod");
   const { pathname } = useRouter();
+
+  useEffect(() => {
+    toggleSideMenu();
+  }, [activeItem]);
 
   useEffect(() => {
     if (pathname === "/") setActiveItem("Úvod");
@@ -52,8 +61,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="flex w-full p-8 py-10 lg:justify-center">
-      <div className="flex flex-col justify-center px-4 py-2 mr-2 border-2 border-black border-solid align-center">
+    <nav className="flex w-full p-4 py-10 lg:justify-center">
+      <div className="flex flex-col justify-center px-4 py-2 ml-6 mr-2 border-2 border-black border-solid align-center">
         <h1 className="text-center text-md md:text-[2rem] text-font-green font-bold">PSYCHOLOG A TERAPEUT, BRNO</h1>
         <h2 className="text-md md:text-[1.5rem] font-bold text-center">Mgr. Petr Davídek</h2>
       </div>
@@ -70,9 +79,9 @@ const Navbar = () => {
       </div>
       <button
         onClick={() => {
-          showSideMenu();
+          toggleSideMenu();
         }}
-        className="w-8 h-8 ml-auto lg:hidden"
+        className="w-8 h-8 ml-auto mr-2 lg:hidden"
       >
         {isSideMenuOpen ? <Image src={CloseIcon} alt="close"></Image> : <Image src={MenuIcon} alt="menu"></Image>}
       </button>
@@ -83,7 +92,7 @@ const Navbar = () => {
 
 const SideMenu: FC<{ activeItem: string; setActiveItem: Function }> = ({ activeItem, setActiveItem }) => {
   return (
-    <div className="fixed top-0 left-0 w-1/2 h-screen p-4 bg-font-green/95 sm:w-1/4 lg:hidden">
+    <div className="fixed top-0 left-0 z-10 w-1/2 h-screen p-4 bg-font-green/95 sm:w-1/4 lg:hidden">
       <ul className="flex flex-col text-[1.5rem] gap-4">
         <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Úvod" route="/" />
         <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" route="/about" />
