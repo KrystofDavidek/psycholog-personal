@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import img1 from "../assets/pracovna1.jpg";
 import img2 from "../assets/pracovna2.jpg";
-import useWindowDimensions from "./hooks/useWindowDimension";
+import useWindowDimensions from "../hooks/useWindowDimension";
 
 const first = () => {
   const { width, height } = useWindowDimensions();

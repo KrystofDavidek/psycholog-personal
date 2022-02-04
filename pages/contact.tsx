@@ -6,7 +6,7 @@ import Map from "../assets/mapa-velka.png";
 import Outside from "../assets/venek.jpg";
 import Modal from "../components/Modal";
 import ModalMini from "../components/ModalMini";
-import useWindowDimensions from "./hooks/useWindowDimension";
+import useWindowDimensions from "../hooks/useWindowDimension";
 
 const contact = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks

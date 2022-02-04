@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import YouTube from "react-youtube";
-import useWindowDimensions from "./hooks/useWindowDimension";
+import useWindowDimensions from "../hooks/useWindowDimension";
 
 const about = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
