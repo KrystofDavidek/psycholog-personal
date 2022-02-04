@@ -5,7 +5,7 @@ import useWindowDimensions from "../hooks/useWindowDimension";
 
 const about = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [isLoaded, setLoaded] = useState(false);
 

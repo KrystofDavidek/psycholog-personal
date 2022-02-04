@@ -10,7 +10,7 @@ import useWindowDimensions from "../hooks/useWindowDimension";
 
 const contact = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -48,10 +48,17 @@ const contact = () => {
           )}
         </div>
         <div className="relative 2xl:col-span-4" style={{ width: "100", height: "550px" }}>
-          <Image src={Map} alt="Mapa" objectPosition="center" objectFit="cover" layout={"fill"} />
+          <Image src={Map} placeholder="blur" alt="Mapa" objectPosition="center" objectFit="cover" layout={"fill"} />
         </div>
         <div className="relative 2xl:col-span-2" style={{ width: "100%", height: "550px" }}>
-          <Image src={Outside} alt="Venkovní prostor" objectPosition="center" objectFit="cover" layout={"fill"} />
+          <Image
+            src={Outside}
+            placeholder="blur"
+            alt="Venkovní prostor"
+            objectPosition="center"
+            objectFit="cover"
+            layout={"fill"}
+          />
         </div>
       </div>
     </div>

@@ -38,7 +38,7 @@ const practice = () => {
           </ul>
         </div>
         <div className="self-center">
-          <Image layout="responsive" objectFit="contain" src={ProfileImg} alt="Profilová fotka" />
+          <Image placeholder="blur" layout="responsive" objectFit="contain" src={ProfileImg} alt="Profilová fotka" />
         </div>
       </div>
     </div>

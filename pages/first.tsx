@@ -7,7 +7,7 @@ import img2 from "../assets/pracovna2.jpg";
 import useWindowDimensions from "../hooks/useWindowDimension";
 
 const first = () => {
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   return (
     <div>
@@ -34,9 +34,17 @@ const first = () => {
             </p>
           </div>
 
-          <Image src={img1} alt="Pracovna 1" width={400} height={400} layout={width && width > 1300 ? "fixed" : "responsive"} />
+          <Image
+            placeholder="blur"
+            src={img1}
+            alt="Pracovna 1"
+            width={400}
+            height={400}
+            layout={width && width > 1300 ? "fixed" : "responsive"}
+          />
 
           <Image
+            placeholder="blur"
             src={img2}
             alt="Pracovna 2"
             width={400}

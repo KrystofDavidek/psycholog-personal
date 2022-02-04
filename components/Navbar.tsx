@@ -4,6 +4,7 @@ import Link from "next/link";
 import MenuIcon from "../assets/bars-solid.svg";
 import CloseIcon from "../assets/window-close-regular.svg";
 import Image from "next/image";
+import useWindowDimensions from "../hooks/useWindowDimension";
 
 const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Function; name: string; route: string }> = ({
   isSide,
@@ -42,6 +43,7 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
 };
 
 const Navbar = () => {
+  const { width } = useWindowDimensions();
   const [isSideMenuOpen, setisSideMenuOpen] = useState(false);
   const toggleSideMenu = () => {
     isSideMenuOpen ? setisSideMenuOpen(false) : setisSideMenuOpen(true);
@@ -52,6 +54,10 @@ const Navbar = () => {
   useEffect(() => {
     toggleSideMenu();
   }, [activeItem]);
+
+  useEffect(() => {
+    setisSideMenuOpen(false);
+  }, [width]);
 
   useEffect(() => {
     if (pathname === "/") setActiveItem("Úvod");
