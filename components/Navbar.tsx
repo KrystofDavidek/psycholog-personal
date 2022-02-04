@@ -32,9 +32,10 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
       {isSide ? (
         <div className={`pb-2 border-b-2 ${color}`}>{name}</div>
       ) : (
-        <div className={`border-t-2 ${color}`}>
-          <div className="mt-2">{name}</div>
+        <div>
+          <div className={`border-b-2 pb-2 ${color}`}>{name}</div>
         </div>
+        // <div className={` border-b-2 ${color}`}>{name}</div>
       )}
     </>
   );
@@ -66,7 +67,7 @@ const Navbar = () => {
         <h1 className="text-center text-md md:text-[2rem] text-font-green font-bold">PSYCHOLOG A TERAPEUT, BRNO</h1>
         <h2 className="text-md md:text-[1.5rem] font-bold text-center">Mgr. Petr Davídek</h2>
       </div>
-      <div className="hidden py-4 ml-auto space-x-10 2xl:px-20 lg:flex">
+      <div className="hidden py-4 mx-10 ml-auto space-x-10 2xl:px-20 lg:flex">
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Úvod" route="/" />
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" route="/about" />
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="První setkání" route="/first" />
@@ -92,7 +93,7 @@ const Navbar = () => {
 
 const SideMenu: FC<{ activeItem: string; setActiveItem: Function }> = ({ activeItem, setActiveItem }) => {
   return (
-    <div className="fixed top-0 left-0 z-10 w-1/2 h-screen p-4 bg-font-green/95 sm:w-1/4 lg:hidden">
+    <div className="fixed top-0 left-0 z-20 w-1/2 h-screen p-4 bg-font-green/95 sm:w-1/4 lg:hidden">
       <ul className="flex flex-col text-[1.5rem] gap-4">
         <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Úvod" route="/" />
         <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" route="/about" />

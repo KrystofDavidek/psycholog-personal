@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useLayoutEffect, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import YouTube from "react-youtube";
 import useWindowDimensions from "./hooks/useWindowDimension";
 
