@@ -18,8 +18,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      {width < 500 && (
-        <div className="flex flex-col mx-8 xl 2xl:flex text-font-green">
+      {width && width < 500 && (
+        <div className="flex flex-col mx-8 mb-2 2xl:flex text-font-green">
           <span>„Jsme předurčeni k tomu, být štastní v nedokonalém světě.“</span>
           <span className="text-right">Albert Peso</span>
         </div>
