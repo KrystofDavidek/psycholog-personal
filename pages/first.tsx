@@ -17,11 +17,10 @@ const first = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="p-10 m-4 font-bold bg-cover 2xl:h-full bg-motive">
-        <p className="pb-4">
-          První setkání V průběhu prvního setkání mám možnost se prvotně seznámit s tématem, se kterým za mnou přicházíte a
-          domluvit se s Vámi na formě spolupráce, která Vám bude nejvíce vyhovovat. Nabízím krátkodobou i dlouhodobější formu
-          spolupráce.
+      <div className="p-10 m-4 font-bold bg-cover 2xl:pr-0 2xl:mr-0 2xl:h-full bg-motive">
+        <p className="pb-4 ">
+          V průběhu prvního setkání mám možnost se prvotně seznámit s tématem, se kterým za mnou přicházíte a domluvit se s Vámi
+          na formě spolupráce, která Vám bude nejvíce vyhovovat. Nabízím krátkodobou i dlouhodobější formu spolupráce.
         </p>
         <div className="grid gap-4 mt-4 xl:grid-cols-3 2xl:grid-cols-4">
           <div className="2xl:col-span-2">
