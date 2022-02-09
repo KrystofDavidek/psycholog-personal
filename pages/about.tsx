@@ -38,9 +38,9 @@ const about = () => {
             <p>
               Při své práci respektuji jedinečnost a osobní tempo klientů a vycházím z Biosyntetické psychoterapie - moderní
               metody v psychosomatické psychoterapii, která rozvíjí přirozené zdroje a klade důraz na bezpečí a soulad mezi tím,
-              jak se člověk cítí, co si myslí, jak se chová a jak tomu všemu rozumí. Kromě zaměření se na to co člověk cítí a co
-              si myslí si také s klienty všímám toho, jak na situaci, kterou řeší, reaguje jejich tělo – jestli např. mají napjaté
-              svaly, obtížně se jim dýcha, neboje je něco bolí apod.{" "}
+              jak se člověk cítí, co si myslí, jak se chová a jak tomu všemu rozumí. Kromě zaměření se na to, co člověk cítí a co
+              si myslí, si také s klienty všímám, jak na situaci, kterou řeší, reaguje jejich tělo – jestli např. mají napjaté
+              svaly, obtížně se jim dýchá nebo je něco bolí apod.
             </p>
             <p>S dětmi využívám i prvky terapie hrou, která je pro ně přirozenou a bezpečnou formou jejich rozvoje.</p>
           </div>

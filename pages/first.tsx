@@ -29,7 +29,7 @@ const first = () => {
             <p className="pb-4">Cena:........................700 Kč/50 minut.</p>
             <p>
               Zrušení domluveného setkání 24 hodin předem je zdarma. V případě zrušení domluveného setkání později než 24 hodin
-              před jeho začátkem klient hradí jeho plnou cenu
+              před jeho začátkem klient hradí jeho plnou cenu.
             </p>
           </div>
 
