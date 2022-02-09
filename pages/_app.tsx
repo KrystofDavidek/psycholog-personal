@@ -28,18 +28,18 @@ export default function App({ Component, pageProps }: AppProps) {
       <main className="flex flex-col justify-between min-h-full sm:m-5">
         <Component {...pageProps} />
       </main>
-      <footer className="flex flex-wrap-reverse items-center justify-center gap-4 mt-auto mb-5 md:justify-between">
+      <footer className="flex flex-wrap-reverse items-center justify-center gap-4 mb-5 md:justify-between">
         <div className="m-1 md:mx-5 xl:mx-15 xl:px-20">
           <p className="text-sm">© 2022 Mgr. Kryštof Davídek.</p>
         </div>
-        <div className="flex flex-col items-center gap-4 m-1 md:items-start sm:flex-row md:mx-5 xl:mx-15 xl:px-20">
-          <p className="text-xl md:text-[2rem] font-bold">
+        <div className="flex text-xl md:text-[1.5rem] font-bold flex-col items-center gap-4 m-1 md:items-start sm:flex-row md:mx-5 xl:mx-15 xl:px-20">
+          <p>
             <span>E-mail: </span>
             <a href="mailto: davidek.email@gmail.com" className="text-font-green">
               davidek.email@gmail.com
             </a>
           </p>
-          <p className="text-xl md:text-[2rem] font-bold">
+          <p>
             <span>Tel: </span>
             <a href="tel:734574243" className="text-font-green">
               734 574 243

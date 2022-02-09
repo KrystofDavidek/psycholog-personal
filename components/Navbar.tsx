@@ -17,7 +17,7 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
 
   return activeItem !== name ? (
     <Link href={route}>
-      <a className="transition duration-500 hover:scale-120">
+      <a className="font-bold transition duration-500 hover:scale-120">
         <span
           onClick={() => {
             setActiveItem(name);
@@ -31,10 +31,10 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
   ) : (
     <>
       {isSide ? (
-        <div className={`pb-2 border-b-2 ${color}`}>{name}</div>
+        <div className={`pb-2 font-bold border-b-2 ${color}`}>{name}</div>
       ) : (
         <div>
-          <div className={`border-b-2 pb-2 ${color}`}>{name}</div>
+          <div className={`border-b-2 font-bold pb-2 ${color}`}>{name}</div>
         </div>
         // <div className={` border-b-2 ${color}`}>{name}</div>
       )}
@@ -68,8 +68,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="flex w-full p-4 py-10 lg:justify-center">
-      <div className="flex flex-col justify-center px-4 py-2 ml-6 mr-2 border-2 border-black border-solid align-center">
+    <nav className="flex w-full p-4 pt-10 pb-8 md:pb-0 lg:justify-center">
+      <div className="flex flex-col justify-center px-4 py-2 ml-6 mr-2 align-center">
         <h1 className="text-center text-md md:text-[2rem] text-font-green font-bold">PSYCHOLOG A TERAPEUT, BRNO</h1>
         <h2 className="text-md md:text-[1.5rem] font-bold text-center">Mgr. Petr Davídek</h2>
       </div>
@@ -79,7 +79,7 @@ const Navbar = () => {
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="První setkání" route="/first" />
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Má praxe" route="/practice" />
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" route="/contact" />
-        <div className="lg:hidden 2xl:flex flex-col max-w-[17rem] space-y-4 text-font-green">
+        <div className="font-bold lg:hidden 2xl:flex flex-col max-w-[17rem] space-y-4 text-font-green">
           <span>„Jsme předurčeni k tomu, být štastní v nedokonalém světě.“</span>
           <span className="text-right">Albert Peso</span>
         </div>
