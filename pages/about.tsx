@@ -22,7 +22,7 @@ const about = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="min-h-full p-10 m-4 font-bold bg-cover bg-motive">
+      <div className="min-h-full p-10 m-4 text-white bg-cover bg-motive">
         <p className="pb-4">
           Jmenuji se Petr Davídek a působím jako psycholog a terapeut v Brně. V rámci své soukromé praxe nabízím psychologické
           poradenství a terapii pro děti, dospívající a dospělé.

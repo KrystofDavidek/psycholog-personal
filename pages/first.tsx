@@ -17,7 +17,7 @@ const first = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="p-10 m-4 font-bold bg-cover 2xl:pr-0 2xl:mr-0 2xl:h-full bg-motive">
+      <div className="p-10 m-4 bg-cover 2xl:pr-0 2xl:mr-0 2xl:h-full bg-motive">
         <p className="pb-4 ">
           V průběhu prvního setkání mám možnost se prvotně seznámit s tématem, se kterým za mnou přicházíte a domluvit se s Vámi
           na formě spolupráce, která Vám bude nejvíce vyhovovat. Nabízím krátkodobou i dlouhodobější formu spolupráce.
