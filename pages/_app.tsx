@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </main>
       <footer className="flex flex-wrap-reverse items-center justify-center gap-4 mb-5 md:justify-between">
         <div className="m-1 md:mx-5 xl:mx-15 xl:px-20">
-          <p className="text-sm">© 2022 Mgr. Kryštof Davídek.</p>
+          <p className="text-sm">© 2022 Mgr. Petr Davídek.</p>
         </div>
         <div className="flex text-xl md:text-[1.5rem] font-bold flex-col items-center gap-4 m-1 md:items-start sm:flex-row md:mx-5 xl:mx-15 xl:px-20">
           <p>
