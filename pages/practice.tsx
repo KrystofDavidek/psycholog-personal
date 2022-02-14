@@ -15,7 +15,7 @@ const practice = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="grid xl:grid-cols-3 bg-cover p-10 gap-4 2xl:h-[550px] m-4 bg-motive">
-        <div className="font-bold xl:col-span-2">
+        <div className="text-white xl:col-span-2">
           <p>Absolvované vzdělání a kurzy:</p>
           <ul className="p-4 ml-4 list-disc">
             <li>Mgr. vzdělání v oboru Psychologie, Filosofická fakulta Univerzity Palackého v Olomouci, </li>

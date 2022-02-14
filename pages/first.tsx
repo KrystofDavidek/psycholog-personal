@@ -17,7 +17,7 @@ const first = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="p-10 m-4 bg-cover 2xl:pr-0 2xl:mr-0 2xl:h-full bg-motive">
+      <div className="p-10 m-4 text-white bg-cover 2xl:pr-0 2xl:mr-0 2xl:h-full bg-motive">
         <p className="pb-4 ">
           V průběhu prvního setkání mám možnost se prvotně seznámit s tématem, se kterým za mnou přicházíte a domluvit se s Vámi
           na formě spolupráce, která Vám bude nejvíce vyhovovat. Nabízím krátkodobou i dlouhodobější formu spolupráce.
@@ -32,21 +32,19 @@ const first = () => {
               před jeho začátkem klient hradí jeho plnou cenu.
             </p>
           </div>
-
           <Image
             placeholder="blur"
             src={img1}
             alt="Pracovna 1"
-            width={400}
+            width={width && width < 1600 && width > 1520 ? 350 : 400}
             height={400}
             layout={width && width > 1300 ? "fixed" : "responsive"}
           />
-
           <Image
             placeholder="blur"
             src={img2}
             alt="Pracovna 2"
-            width={400}
+            width={width && width < 1600 && width > 1520 ? 350 : 400}
             height={400}
             layout={width && width > 1300 ? "fixed" : "responsive"}
             objectFit="contain"

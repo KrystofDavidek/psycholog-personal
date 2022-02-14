@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="grid gap-4 p-10 m-4 bg-cover xl:grid-cols-3 bg-motive bg-red">
-        <div className="font-bold text-white xl:col-span-2">
+        <div className="text-white  xl:col-span-2">
           <p>Pracuji s dětmi a dospívajícími s:</p>
           <ul className="p-4 ml-4 list-disc">
             <li>ADHD a projevy nepozornosti, hyperaktivity a impulzivity v chování, </li>

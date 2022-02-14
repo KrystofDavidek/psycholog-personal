@@ -21,8 +21,8 @@ const contact = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="grid m-4 bg-cover xl:grid-cols-3 2xl:grid-cols-8 2xl:h-full bg-motive">
-        <div className="flex flex-col justify-between p-8 font-bold 2xl:col-span-2">
-          <div>
+        <div className="flex flex-col justify-between p-8 2xl:col-span-2">
+          <div className="text-white">
             <p className="pb-4">Kontakt:</p>
             <p>Terapie pod Špilberkem - psychologické centrum,</p>
             <p>První patro - pracovna č. 1, 2</p>
@@ -35,7 +35,7 @@ const contact = () => {
               <button
                 type="button"
                 onClick={() => setShowModal(true)}
-                className="self-center w-full p-4 font-bold transition-all duration-150 ease-linear border-2 border-black border-solid rounded shadow focus:outline-none focus:ring-2 focus:ring-white hover:opacity-75 hover:bg-slate-400"
+                className="self-center w-full p-4 font-bold text-white transition-all duration-150 ease-linear border-2 border-white border-solid rounded shadow focus:outline-none focus:ring-2 focus:ring-white hover:opacity-75 hover:bg-slate-400"
               >
                 Kontakt a domluva setkání
               </button>
