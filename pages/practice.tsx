@@ -21,27 +21,21 @@ const practice = () => {
           property="og:description"
           content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
         />
-        <meta
-          property="og:image"
-          content="https://static.wixstatic.com/media/8e6e3a_350e513791fb43688608a8ce90892182~mv2.jpg/v1/fill/w_2500,h_3332,al_c/8e6e3a_350e513791fb43688608a8ce90892182~mv2.jpg"
-        />
+        <meta property="og:image" content="../assets/profilovka-orez.png" />
         <meta property="og:image:width" content="2500" />
         <meta property="og:image:height" content="3332" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.psycholog-terapeut-brno.cz/m%C3%A1-praxe" />
         <meta property="og:site_name" content="mobil kontakty" />
 
-        <meta name="google-site-verification" content="UvZqrbMejlIe7mEjOSxw4U0mtpgAkh_6HO9UIFEFHII" />
+        <meta name="google-site-verification" content="3f69Q8PKRCOvTW9pWAfzz1qtO3Ydb95NWtbfygIT-vw" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Má praxe | Psycholog a terapeut, Brno - Mgr. Petr Davídek" />
         <meta
           name="twitter:description"
           content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
         />
-        <meta
-          name="twitter:image"
-          content="https://static.wixstatic.com/media/8e6e3a_350e513791fb43688608a8ce90892182~mv2.jpg/v1/fill/w_2500,h_3332,al_c/8e6e3a_350e513791fb43688608a8ce90892182~mv2.jpg"
-        />
+        <meta name="twitter:image" content="../assets/profilovka-orez.png" />
         <link
           rel="preload"
           as="font"

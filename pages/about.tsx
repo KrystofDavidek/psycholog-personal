@@ -37,7 +37,7 @@ const about = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.psycholog-terapeut-brno.cz" />
         <meta property="og:site_name" content="mobil kontakty" />
-        <meta name="google-site-verification" content="UvZqrbMejlIe7mEjOSxw4U0mtpgAkh_6HO9UIFEFHII" />
+        <meta name="google-site-verification" content="3f69Q8PKRCOvTW9pWAfzz1qtO3Ydb95NWtbfygIT-vw" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Psycholog a terapeut, Brno - Mgr. Petr Davídek, terapie pro dětí a dospělé" />
         <meta
