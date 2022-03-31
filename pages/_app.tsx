@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         {width && width < 500 && (
-          <div className="flex flex-col mx-8 mb-2 2xl:flex text-font-green">
+          <div className="flex flex-col m-8 2xl:flex text-font-green">
             <span>„Jsme předurčeni k tomu, být štastní v nedokonalém světě.“</span>
             <span className="text-right">Albert Peso</span>
           </div>
@@ -30,14 +30,14 @@ export default function App({ Component, pageProps }: AppProps) {
         <main className="flex flex-col justify-between min-h-full sm:m-5">
           <Component {...pageProps} />
         </main>
-        <footer className="flex flex-wrap-reverse items-center justify-center gap-4 mb-5 sm:mr-7 sm:ml-8 md:justify-between">
+        <footer className="flex flex-wrap-reverse items-center justify-center gap-4 sm:mr-7 sm:ml-8 md:justify-between">
           <div className="m-1">
             <p className="text-sm">© 2022 Mgr. Kryštof Davídek</p>
           </div>
           <div
             className={`flex ${
-              width && width > 350 ? "text-xl" : "text-sm"
-            } md:text-[1rem] font-bold flex-col items-center gap-4 m-1 md:items-start sm:flex-row`}
+              width && width > 350 ? "text-xl" : "text-[1.5rem]"
+            } md:text-[1.5rem] font-bold flex-col items-center gap-4 m-1 md:items-start sm:flex-row`}
           >
             <p>
               <span>E-mail: </span>

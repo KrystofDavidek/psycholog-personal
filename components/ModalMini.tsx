@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { sendEmail } from "../utils/sendEmail";
 
 export default function ModalMini({ showModal, setShowModal }: any) {
   const [message, setMessage] = useState("");
@@ -27,9 +28,8 @@ export default function ModalMini({ showModal, setShowModal }: any) {
 
   const onSubmit = (data: any) => {
     reset();
-    setMessage("Děkujeme za odeslání");
-    // handle submitting the form
-    console.log(data);
+    setShowModal(false);
+    sendEmail(data);
   };
 
   return (
@@ -67,7 +67,7 @@ export default function ModalMini({ showModal, setShowModal }: any) {
             <div className="relative flex-auto px-8">
               <form onSubmit={handleSubmit(onSubmit)} className="w-full">
                 <div className="grid gap-4 mt-4 xl:grid-cols-3">
-                  <div className="xl:col-span-1">
+                  <div className="col-span-4 xl:col-span-1">
                     <div className="mb-4">
                       <label className="block mb-2 text-sm font-bold text-gray-700">Jméno</label>
                       <input
@@ -101,7 +101,7 @@ export default function ModalMini({ showModal, setShowModal }: any) {
                       />
                     </div>
                   </div>
-                  <div className="col-span-2 xl:">
+                  <div className="col-span-4 xl:col-span-2">
                     <div className="mb-4">
                       <label className="block mb-2 text-sm font-bold text-gray-700">Zde napište zprávu</label>
                       <textarea
@@ -114,9 +114,9 @@ export default function ModalMini({ showModal, setShowModal }: any) {
                   </div>
                 </div>
                 <div className="font-bold text-gray-700 ">{message && <p>{message}</p>}</div>
-                <div className="flex items-center justify-end p-6 rounded-b border-blueGray-200">
+                <div className="flex items-center justify-end py-6 rounded-b border-blueGray-200">
                   <button
-                    className="px-6 py-3 mb-1 mr-1 text-white transition-all duration-150 ease-linear rounded shadow outline-none bg-font-green hover:shadow-lg focus:outline-none"
+                    className="px-6 py-3 mb-1 text-white transition-all duration-150 ease-linear rounded shadow outline-none bg-font-green hover:shadow-lg focus:outline-none"
                     type="button"
                     onClick={handleSubmit(onSubmit)}
                   >

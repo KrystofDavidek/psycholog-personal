@@ -53,7 +53,7 @@ const first = () => {
         />
       </Head>
 
-      <div className="p-10 m-4 text-white bg-cover 2xl:pr-0 2xl:mr-0 2xl:h-full bg-motive">
+      <div className="p-10 m-4 text-white bg-cover 2xl:pr-0 2xl:h-full bg-motive">
         <p className="pb-4 ">
           V průběhu prvního setkání mám možnost se prvotně seznámit s tématem, se kterým za mnou přicházíte a domluvit se s Vámi
           na formě spolupráce, která Vám bude nejvíce vyhovovat. Nabízím krátkodobou i dlouhodobější formu spolupráce.
@@ -62,7 +62,7 @@ const first = () => {
           <div className="2xl:col-span-2">
             <p className="pb-4">​Na první setkání je zapotřebí se předem objednat prostřednictvím telefonu, nebo e-mailu.</p>
             <p className="pb-4">Cena poskytovaných služeb</p>
-            <p className="pb-4">Cena:........................700 Kč/50 minut.</p>
+            <p className="pb-4">Cena:........................900 Kč/50 minut.</p>
             <p>
               Zrušení domluveného setkání 24 hodin předem je zdarma. V případě zrušení domluveného setkání později než 24 hodin
               před jeho začátkem klient hradí jeho plnou cenu.

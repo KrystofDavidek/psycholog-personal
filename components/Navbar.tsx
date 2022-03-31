@@ -68,20 +68,20 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="flex w-full p-4 pt-10 pb-8 md:pb-0 lg:justify-center">
+    <nav className="flex w-full pt-10 pb-8 pl-4 md:pb-0 lg:justify-center pr-[2.5rem] 2xl:pr-[2.5rem]">
       <div className="flex flex-col justify-center px-4 py-2 ml-6 mr-2 align-center">
         <h1 className="text-center text-md md:text-[2rem] text-font-green font-bold">PSYCHOLOG A TERAPEUT, BRNO</h1>
         <h2 className="text-md md:text-[1.5rem] font-bold text-center">Mgr. Petr Davídek</h2>
       </div>
-      <div className="hidden py-4 mx-10 ml-auto space-x-10 2xl:pl-20 lg:flex">
+      <div className="hidden py-4 ml-auto space-x-5 2xl:space-x-10 2xl:pl-20 lg:flex">
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Úvod" route="/" />
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" route="/about" />
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="První setkání" route="/first" />
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Má praxe" route="/practice" />
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" route="/contact" />
-        <div className="font-bold lg:hidden 2xl:flex flex-col max-w-[17rem] space-y-4 text-font-green">
-          <span>„Jsme předurčeni k tomu, být štastní v nedokonalém světě.“</span>
-          <span className="text-right">Albert Peso</span>
+        <div className="font-bold hidden xl:flex flex-col max-w-[15rem] text-font-green">
+          <span className="text-right">„Jsme předurčeni k tomu, být štastní v nedokonalém světě.“</span>
+          <span className="pt-4 text-right">Albert Peso</span>
         </div>
       </div>
       <button

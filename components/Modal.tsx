@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { sendEmail } from "../utils/sendEmail";
 
 export default function Modal({ showModal, setShowModal }: any) {
   const [message, setMessage] = useState("");
@@ -27,8 +28,8 @@ export default function Modal({ showModal, setShowModal }: any) {
 
   const onSubmit = (data: any) => {
     reset();
-    setMessage("Děkujeme za odeslání");
-    console.log(data);
+    setShowModal(false);
+    sendEmail(data);
   };
 
   return (
@@ -118,9 +119,9 @@ export default function Modal({ showModal, setShowModal }: any) {
                       </div>
                     </div>
                     <div className="font-bold text-gray-700 ">{message && <p>{message}</p>}</div>
-                    <div className="flex items-center justify-end p-6 rounded-b border-blueGray-200">
+                    <div className="flex items-center justify-end py-6 rounded-b border-blueGray-200">
                       <button
-                        className="px-6 py-3 mb-1 mr-1 text-white transition-all duration-150 ease-linear rounded shadow outline-none bg-font-green hover:shadow-lg focus:outline-none"
+                        className="px-6 py-3 mb-1 text-white transition-all duration-150 ease-linear rounded shadow outline-none bg-font-green hover:shadow-lg focus:outline-none"
                         type="button"
                         onClick={handleSubmit(onSubmit)}
                       >
