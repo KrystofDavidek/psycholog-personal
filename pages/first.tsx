@@ -17,20 +17,15 @@ const first = () => {
           name="description"
           content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
         />
-        <link rel="canonical" href="https://www.psycholog-terapeut-brno.cz/prvn%C3%AD-setk%C3%A1n%C3%AD" />
+        <link rel="canonical" href="https://psycholog-personal.vercel.app/first" />
         <meta property="og:title" content="První setkání | Psycholog a terapeut - Mgr. Petr Davídek" />
         <meta
           property="og:description"
           content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
         />
-        <meta
-          property="og:image"
-          content="https://static.wixstatic.com/media/8e6e3a_350e513791fb43688608a8ce90892182~mv2.jpg/v1/fill/w_2500,h_3332,al_c/8e6e3a_350e513791fb43688608a8ce90892182~mv2.jpg"
-        />
-        <meta property="og:image:width" content="2500" />
-        <meta property="og:image:height" content="3332" />
+        <meta property="og:image" content="https://psycholog-personal.vercel.app/static/images/profilovka-orez.png" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.psycholog-terapeut-brno.cz/prvn%C3%AD-setk%C3%A1n%C3%AD" />
+        <meta property="og:url" content="https://psycholog-personal.vercel.app/first" />
         <meta property="og:site_name" content="mobil kontakty" />
 
         <meta name="google-site-verification" content="3f69Q8PKRCOvTW9pWAfzz1qtO3Ydb95NWtbfygIT-vw" />
@@ -40,10 +35,7 @@ const first = () => {
           name="twitter:description"
           content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
         />
-        <meta
-          name="twitter:image"
-          content="https://static.wixstatic.com/media/8e6e3a_350e513791fb43688608a8ce90892182~mv2.jpg/v1/fill/w_2500,h_3332,al_c/8e6e3a_350e513791fb43688608a8ce90892182~mv2.jpg"
-        />
+        <meta name="twitter:image" content="https://psycholog-personal.vercel.app/static/images/profilovka-orez.png" />
         <link
           rel="preload"
           as="font"
