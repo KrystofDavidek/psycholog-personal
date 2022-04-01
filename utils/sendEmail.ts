@@ -16,7 +16,6 @@ export const sendEmail = (data: Data) => {
     },
     body: JSON.stringify(data),
   }).then((res) => {
-    console.log("Fetch: ", res);
     res.status === 200 ? router.push("/contact") : router.push("/error");
   });
 };

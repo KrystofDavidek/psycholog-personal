@@ -16,18 +16,20 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
   const color = isSide ? "border-black" : "border-font-green";
 
   return activeItem !== name ? (
-    <Link href={route}>
-      <a className="font-bold transition duration-500 hover:scale-120">
-        <span
-          onClick={() => {
-            setActiveItem(name);
-          }}
-          className={`${!isSide && "hover:text-font-green"}`}
-        >
-          {name}
-        </span>
-      </a>
-    </Link>
+    <div>
+      <Link href={route}>
+        <a className="font-bold transition duration-500 hover:scale-120">
+          <span
+            onClick={() => {
+              setActiveItem(name);
+            }}
+            className={`${!isSide && "hover:text-font-green"}`}
+          >
+            {name}
+          </span>
+        </a>
+      </Link>
+    </div>
   ) : (
     <>
       {isSide ? (
