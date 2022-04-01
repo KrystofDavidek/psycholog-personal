@@ -32,7 +32,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </main>
         <footer className="flex flex-wrap-reverse items-center justify-center gap-4 sm:mr-7 sm:ml-8 md:justify-between">
           <div className="m-1">
-            <p className="text-sm">© 2022 Mgr. Kryštof Davídek</p>
+            <p className="text-sm">© 2022 Kryštof Davídek</p>
           </div>
           <div
             className={`flex ${
