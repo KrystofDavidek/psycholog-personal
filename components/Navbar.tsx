@@ -66,7 +66,7 @@ const Navbar = () => {
     if (pathname === "/about") setActiveItem("O mně");
     if (pathname === "/first") setActiveItem("První setkání");
     if (pathname === "/practice") setActiveItem("Má praxe");
-    if (pathname === "/contact") setActiveItem("Kontakt");
+    if (pathname === "/kontakt") setActiveItem("Kontakt");
   }, []);
 
   return (
@@ -80,7 +80,7 @@ const Navbar = () => {
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" route="/about" />
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="První setkání" route="/first" />
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Má praxe" route="/practice" />
-        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" route="/contact" />
+        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" route="/kontakt" />
         <div className="font-bold hidden xl:flex flex-col max-w-[15rem] text-font-green">
           <span className="text-right">„Jsme předurčeni k tomu, být štastní v nedokonalém světě.“</span>
           <span className="pt-4 text-right">Albert Peso</span>
@@ -107,7 +107,7 @@ const SideMenu: FC<{ activeItem: string; setActiveItem: Function }> = ({ activeI
         <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" route="/about" />
         <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="První setkání" route="/first" />
         <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Má praxe" route="/practice" />
-        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" route="/contact" />
+        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" route="/kontakt" />
       </ul>
     </div>
   );

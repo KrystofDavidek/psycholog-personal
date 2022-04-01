@@ -8,7 +8,7 @@ import Modal from "../components/Modal";
 import ModalMini from "../components/ModalMini";
 import useWindowDimensions from "../hooks/useWindowDimension";
 
-const contact = () => {
+const kontakt = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { width } = useWindowDimensions();
   const [showModal, setShowModal] = useState(false);
@@ -20,7 +20,7 @@ const contact = () => {
         name="description"
         content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
       />
-      <link rel="canonical" href="https://psycholog-personal.vercel.app/contact" />
+      <link rel="canonical" href="https://psycholog-personal.vercel.app/kontakt" />
       <meta property="og:title" content=" Psycholog a terapeut, Brno: terapie pro děti a dospělé - Mgr. Petr Davídek" />
       <meta
         property="og:description"
@@ -28,7 +28,7 @@ const contact = () => {
       />
       <meta property="og:image" content="https://psycholog-personal.vercel.app/static/images/profilovka-orez.png" />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://psycholog-personal.vercel.app/contact" />
+      <meta property="og:url" content="https://psycholog-personal.vercel.app/kontakt" />
       <meta property="og:site_name" content="mobil kontakty" />
       <meta name="google-site-verification" content="3f69Q8PKRCOvTW9pWAfzz1qtO3Ydb95NWtbfygIT-vw" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -90,4 +90,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default kontakt;
