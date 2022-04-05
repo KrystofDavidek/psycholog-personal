@@ -28,7 +28,7 @@ const first = () => {
         <meta property="og:url" content="https://psycholog-personal.vercel.app/first" />
         <meta property="og:site_name" content="mobil kontakty" />
 
-        <meta name="google-site-verification" content="3f69Q8PKRCOvTW9pWAfzz1qtO3Ydb95NWtbfygIT-vw" />
+        <meta name="google-site-verification" content="UvZqrbMejlIe7mEjOSxw4U0mtpgAkh_6HO9UIFEFHII" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="První setkání | Psycholog a terapeut - Mgr. Petr Davídek" />
         <meta
