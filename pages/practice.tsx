@@ -15,15 +15,15 @@ const practice = () => {
           name="description"
           content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
         />
-        <link rel="canonical" href="https://psycholog-personal.vercel.app/practice" />
+        <link rel="canonical" href="https://www.psycholog-terapeut-brno.cz/praxe" />
         <meta property="og:title" content="Má praxe | Psycholog a terapeut, Brno - Mgr. Petr Davídek" />
         <meta
           property="og:description"
           content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
         />
-        <meta property="og:image" content="https://psycholog-personal.vercel.app/static/images/profilovka-orez.png" />
+        <meta property="og:image" content="https://www.psycholog-terapeut-brno.cz/static/images/profilovka-orez.png" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://psycholog-personal.vercel.app/practice" />
+        <meta property="og:url" content="https://www.psycholog-terapeut-brno.cz/praxe" />
         <meta property="og:site_name" content="mobil kontakty" />
 
         <meta name="google-site-verification" content="UvZqrbMejlIe7mEjOSxw4U0mtpgAkh_6HO9UIFEFHII" />
@@ -33,7 +33,7 @@ const practice = () => {
           name="twitter:description"
           content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
         />
-        <meta name="twitter:image" content="https://psycholog-personal.vercel.app/static/images/profilovka-orez.png" />
+        <meta name="twitter:image" content="https://www.psycholog-terapeut-brno.cz/static/images/profilovka-orez.png" />
         <link
           rel="preload"
           as="font"

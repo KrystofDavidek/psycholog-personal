@@ -6,18 +6,28 @@ import CloseIcon from "../assets/window-close-regular.svg";
 import Image from "next/image";
 import useWindowDimensions from "../hooks/useWindowDimension";
 
-const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Function; name: string; route: string }> = ({
+const routes = {
+  "": "",
+  about: "o-mně",
+  first: "první-setkání",
+  practice: "má-praxe",
+  contact: "kontakt",
+};
+
+type Routes = keyof typeof routes;
+
+const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Function; name: string; routeName: Routes }> = ({
   isSide,
   activeItem,
   name,
-  route,
+  routeName,
   setActiveItem,
 }) => {
   const color = isSide ? "border-black" : "border-font-green";
 
   return activeItem !== name ? (
     <div>
-      <Link href={route}>
+      <Link href={`/${routeName}`} as={`/${routes[routeName]}`}>
         <a className="font-bold transition duration-500 hover:scale-120">
           <span
             onClick={() => {
@@ -63,9 +73,9 @@ const Navbar = () => {
 
   useEffect(() => {
     if (pathname === "/") setActiveItem("Úvod");
-    if (pathname === "/about") setActiveItem("O mně");
-    if (pathname === "/first") setActiveItem("První setkání");
-    if (pathname === "/practice") setActiveItem("Má praxe");
+    if (pathname === "/o-mně") setActiveItem("O mně");
+    if (pathname === "/první-setkání") setActiveItem("První setkání");
+    if (pathname === "/má-praxe") setActiveItem("Má praxe");
     if (pathname === "/kontakt") setActiveItem("Kontakt");
   }, []);
 
@@ -76,11 +86,11 @@ const Navbar = () => {
         <h2 className="text-md md:text-[1.5rem] font-bold text-center">Mgr. Petr Davídek</h2>
       </div>
       <div className="hidden py-4 ml-auto space-x-5 2xl:space-x-10 2xl:pl-20 lg:flex">
-        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Úvod" route="/" />
-        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" route="/about" />
-        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="První setkání" route="/first" />
-        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Má praxe" route="/practice" />
-        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" route="/kontakt" />
+        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Úvod" routeName="" />
+        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" routeName="about" />
+        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="První setkání" routeName="first" />
+        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Má praxe" routeName="practice" />
+        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" routeName="contact" />
         <div className="font-bold hidden xl:flex flex-col max-w-[15rem] text-font-green">
           <span className="text-right">„Jsme předurčeni k tomu, být štastní v nedokonalém světě.“</span>
           <span className="pt-4 text-right">Albert Peso</span>
@@ -103,11 +113,11 @@ const SideMenu: FC<{ activeItem: string; setActiveItem: Function }> = ({ activeI
   return (
     <div className="fixed top-0 left-0 z-20 w-1/2 h-screen p-4 bg-font-green/95 sm:w-1/4 lg:hidden">
       <ul className="flex flex-col text-[1.5rem] gap-4">
-        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Úvod" route="/" />
-        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" route="/about" />
-        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="První setkání" route="/first" />
-        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Má praxe" route="/practice" />
-        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" route="/kontakt" />
+        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Úvod" routeName="" />
+        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" routeName="about" />
+        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="První setkání" routeName="first" />
+        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Má praxe" routeName="practice" />
+        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" routeName="contact" />
       </ul>
     </div>
   );
