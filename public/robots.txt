@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.psycholog-terapeut-brno.cz/
+
+# Sitemaps
+Sitemap: https://www.psycholog-terapeut-brno.cz/sitemap.xml

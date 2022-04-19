@@ -4,10 +4,6 @@ module.exports = {
     BASE_URL: process.env.BASE_URL,
   },
   productionBrowserSourceMaps: true,
-  i18n: {
-    locales: ["cs", "en"],
-    defaultLocale: "cs",
-  },
   async rewrites() {
     return [
       {
