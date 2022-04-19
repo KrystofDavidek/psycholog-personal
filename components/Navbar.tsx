@@ -1,5 +1,6 @@
 import React, { useState, useEffect, FC } from "react";
 import { useRouter } from "next/dist/client/router";
+import { useRouter as useNextRouter } from "next/router";
 import Link from "next/link";
 import MenuIcon from "../assets/bars-solid.svg";
 import CloseIcon from "../assets/window-close-regular.svg";
@@ -62,6 +63,7 @@ const Navbar = () => {
   };
   const [activeItem, setActiveItem] = useState<string>("Úvod");
   const { pathname } = useRouter();
+  const router = useNextRouter();
 
   useEffect(() => {
     toggleSideMenu();
@@ -70,6 +72,25 @@ const Navbar = () => {
   useEffect(() => {
     setisSideMenuOpen(false);
   }, [width]);
+
+  useEffect(() => {
+    if (router.asPath === "/o-mn%C4%9B") {
+      setActiveItem("O mně");
+      return;
+    }
+    if (router.asPath === "/prvn%C3%AD-setk%C3%A1n%C3%AD") {
+      setActiveItem("První setkání");
+      return;
+    }
+    if (router.asPath === "/m%C3%A1-praxe") {
+      setActiveItem("Má praxe");
+      return;
+    }
+    if (router.asPath === "/kontakt") {
+      setActiveItem("Kontakt");
+      return;
+    }
+  }, [router.asPath]);
 
   useEffect(() => {
     if (pathname === "/") setActiveItem("Úvod");

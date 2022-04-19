@@ -4,7 +4,6 @@ import "tailwindcss/tailwind.css";
 import { AppProps } from "next/app";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
-import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [width, setWidth] = useState(0);
