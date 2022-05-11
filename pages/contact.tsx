@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 import Map from "../assets/mapa-velka.png";
 import Outside from "../assets/venek.jpg";
+import CleanModal from "../components/CleanModal";
+import CleanModalMini from "../components/CleanModalMini";
 import Modal from "../components/Modal";
 import ModalMini from "../components/ModalMini";
 import useWindowDimensions from "../hooks/useWindowDimension";
@@ -50,7 +52,7 @@ const contact = () => {
           <div className="text-white">
             <p className="pb-4">Kontakt:</p>
             <p>Terapie pod Špilberkem - psychologické centrum,</p>
-            <p>První patro - pracovna č. 1, 2</p>
+            <p>První patro - pracovna č. 6</p>
             <p>Údolní 222/5</p>
             <p className="pb-4">602 00, Brno - město.</p>
             <p className="pb-8">IČO: 09495673</p>
@@ -64,10 +66,15 @@ const contact = () => {
               >
                 Kontakt a domluva setkání
               </button>
-              {width && width > 1282 ? (
+              {/* {width && width > 1282 ? (
                 <Modal showModal={showModal} setShowModal={setShowModal} />
               ) : (
                 <ModalMini showModal={showModal} setShowModal={setShowModal} />
+              )} */}
+              {width && width > 1282 ? (
+                <CleanModal showModal={showModal} setShowModal={setShowModal} />
+              ) : (
+                <CleanModalMini showModal={showModal} setShowModal={setShowModal} />
               )}
             </>
           )}
