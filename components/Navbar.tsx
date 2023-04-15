@@ -34,8 +34,7 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
             onClick={() => {
               setActiveItem(name);
             }}
-            className={`${!isSide && "hover:text-font-green"}`}
-          >
+            className={`${!isSide && "hover:text-font-green"}`}>
             {name}
           </span>
         </a>
@@ -121,8 +120,7 @@ const Navbar = () => {
         onClick={() => {
           toggleSideMenu();
         }}
-        className="w-8 h-8 ml-auto mr-2 lg:hidden"
-      >
+        className="w-8 h-8 ml-auto mr-2 lg:hidden">
         {isSideMenuOpen ? <Image src={CloseIcon} alt="close"></Image> : <Image src={MenuIcon} alt="menu"></Image>}
       </button>
       {isSideMenuOpen ? <SideMenu activeItem={activeItem} setActiveItem={setActiveItem} /> : ""}

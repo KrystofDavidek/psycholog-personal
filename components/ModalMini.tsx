@@ -42,8 +42,7 @@ export default function ModalMini({ showModal, setShowModal }: any) {
               onClick={() => {
                 setShowModal(false);
                 setMessage("");
-              }}
-            >
+              }}>
               <Image src={CloseIcon} alt="close" />
             </button>
             {/*header*/}
@@ -118,8 +117,7 @@ export default function ModalMini({ showModal, setShowModal }: any) {
                   <button
                     className="px-6 py-3 mb-1 text-white transition-all duration-150 ease-linear rounded shadow outline-none bg-font-green hover:shadow-lg focus:outline-none"
                     type="button"
-                    onClick={handleSubmit(onSubmit)}
-                  >
+                    onClick={handleSubmit(onSubmit)}>
                     Odeslat
                   </button>
                 </div>

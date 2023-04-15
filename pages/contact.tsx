@@ -62,8 +62,7 @@ const contact = () => {
               <button
                 type="button"
                 onClick={() => setShowModal(true)}
-                className="self-center w-full p-4 font-bold text-white transition-all duration-150 ease-linear border-2 border-white border-solid rounded shadow focus:outline-none focus:ring-2 focus:ring-white hover:opacity-75 hover:bg-slate-400"
-              >
+                className="self-center w-full p-4 font-bold text-white transition-all duration-150 ease-linear border-2 border-white border-solid rounded shadow focus:outline-none focus:ring-2 focus:ring-white hover:opacity-75 hover:bg-slate-400">
                 Kontakt a domluva setkání
               </button>
               {/* {width && width > 1282 ? (
