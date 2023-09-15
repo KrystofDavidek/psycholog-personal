@@ -54,7 +54,7 @@ const first = () => {
           <div className="2xl:col-span-2">
             <p className="pb-4">​Na první setkání je zapotřebí se předem objednat prostřednictvím telefonu, nebo e-mailu.</p>
             <p className="pb-4">Cena poskytovaných služeb</p>
-            <p className="pb-4">Cena:........................900 Kč/50 minut.</p>
+            <p className="pb-4">Cena:........................1000 Kč/50 minut.</p>
             <p>
               Zrušení domluveného setkání 24 hodin předem je zdarma. V případě zrušení domluveného setkání později než 24 hodin
               před jeho začátkem klient hradí jeho plnou cenu.

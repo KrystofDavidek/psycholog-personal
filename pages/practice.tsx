@@ -47,7 +47,10 @@ const practice = () => {
           <p>Absolvované vzdělání a kurzy:</p>
           <ul className="p-4 ml-4 list-disc">
             <li>Mgr. vzdělání v oboru Psychologie, Filosofická fakulta Univerzity Palackého v Olomouci, </li>
-            <li>Supervizní psychoterapeutický výcvik v Biosyntéze (doposud frekventantem), Český institut Biosyntézy z.s,</li>
+            <li>
+              Komplexní psychoterapeutický výcvik v somatické a hlubinně orientované psychoterapii - Biosyntéze; Český institut
+              Biosyntézy z.s
+            </li>
             <li>Základní psychoterapeutický výcvik v Biosyntéze, Český institut Biosyntézy z. s.,</li>
             <li>Kurz Školní psycholog na ZŠ a SŠ, Filosofická fakulta Univerzity Palackého v Olomouci,</li>
             <li>Kurz Základní krizová intervence, Remedium Praha o. p. s. a další kurzy.</li>

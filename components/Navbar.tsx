@@ -1,11 +1,9 @@
-import React, { useState, useEffect, FC } from "react";
+import { useState, useEffect, FC } from "react";
 import { useRouter } from "next/dist/client/router";
 import { useRouter as useNextRouter } from "next/router";
 import Link from "next/link";
-import MenuIcon from "../assets/bars-solid.svg";
-import CloseIcon from "../assets/window-close-regular.svg";
-import Image from "next/image";
 import useWindowDimensions from "../hooks/useWindowDimension";
+import { CITATION } from "../pages/_app";
 
 const routes = {
   "": "",
@@ -34,7 +32,7 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
             onClick={() => {
               setActiveItem(name);
             }}
-            className={`${!isSide && "hover:text-font-green"}`}>
+            className={`${!isSide ? "hover:text-font-green" : "hover:border-b-2 hover:border-black hover:pb-2"}`}>
             {name}
           </span>
         </a>
@@ -43,12 +41,11 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
   ) : (
     <>
       {isSide ? (
-        <div className={`pb-2 font-bold border-b-2 ${color}`}>{name}</div>
+        <div className={`pb-2 font-bold border-b-2 w-max ${color}`}>{name}</div>
       ) : (
         <div>
           <div className={`border-b-2 font-bold pb-2 ${color}`}>{name}</div>
         </div>
-        // <div className={` border-b-2 ${color}`}>{name}</div>
       )}
     </>
   );
@@ -56,20 +53,31 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
 
 const Navbar = () => {
   const { width } = useWindowDimensions();
-  const [isSideMenuOpen, setisSideMenuOpen] = useState(false);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const toggleSideMenu = () => {
-    isSideMenuOpen ? setisSideMenuOpen(false) : setisSideMenuOpen(true);
+    isSideMenuOpen ? setIsSideMenuOpen(false) : setIsSideMenuOpen(true);
   };
   const [activeItem, setActiveItem] = useState<string>("Úvod");
   const { pathname } = useRouter();
   const router = useNextRouter();
 
   useEffect(() => {
+    const handleEsc = (event: { key: string }) => {
+      if (isSideMenuOpen && event.key === "Escape") toggleSideMenu();
+    };
+    window.addEventListener("keydown", handleEsc);
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [isSideMenuOpen]);
+
+  useEffect(() => {
     toggleSideMenu();
   }, [activeItem]);
 
   useEffect(() => {
-    setisSideMenuOpen(false);
+    setIsSideMenuOpen(false);
   }, [width]);
 
   useEffect(() => {
@@ -112,17 +120,14 @@ const Navbar = () => {
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Má praxe" routeName="practice" />
         <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" routeName="contact" />
         <div className="font-bold hidden xl:flex flex-col max-w-[15rem] text-font-green">
-          <span className="text-right">„Jsme předurčeni k tomu, být štastní v nedokonalém světě.“</span>
+          <span className="text-right">{CITATION}</span>
           <span className="pt-4 text-right">Albert Peso</span>
         </div>
       </div>
-      <button
-        onClick={() => {
-          toggleSideMenu();
-        }}
-        className="w-8 h-8 ml-auto mr-2 lg:hidden">
-        {isSideMenuOpen ? <Image src={CloseIcon} alt="close"></Image> : <Image src={MenuIcon} alt="menu"></Image>}
-      </button>
+      <div className="w-8 h-8 ml-auto mr-2 lg:hidden">
+        <HamburgerIcon isOpen={isSideMenuOpen} handleClick={toggleSideMenu} />
+      </div>
+
       {isSideMenuOpen ? <SideMenu activeItem={activeItem} setActiveItem={setActiveItem} /> : ""}
     </nav>
   );
@@ -143,3 +148,27 @@ const SideMenu: FC<{ activeItem: string; setActiveItem: Function }> = ({ activeI
 };
 
 export default Navbar;
+
+type HamburgerIconProps = {
+  isOpen: boolean;
+  handleClick: () => void;
+};
+
+const HamburgerIcon = ({ isOpen, handleClick }: HamburgerIconProps) => {
+  const genericHamburgerLine = `h-1 w-6 my-1  bg-black transition ease transform duration-300`;
+  return (
+    <button className="flex flex-col items-center justify-center w-12 h-12 group" onClick={handleClick}>
+      <div
+        className={`${genericHamburgerLine} ${
+          isOpen ? "rotate-45 translate-y-3 opacity-50 group-hover:opacity-100" : "opacity-50 group-hover:opacity-100"
+        }`}
+      />
+      <div className={`${genericHamburgerLine} ${isOpen ? "opacity-0" : "opacity-50 group-hover:opacity-100"}`} />
+      <div
+        className={`${genericHamburgerLine} ${
+          isOpen ? "-rotate-45 -translate-y-3 opacity-50 group-hover:opacity-100" : "opacity-50 group-hover:opacity-100"
+        }`}
+      />
+    </button>
+  );
+};

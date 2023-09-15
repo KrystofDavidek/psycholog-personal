@@ -5,6 +5,8 @@ import { AppProps } from "next/app";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
 
+export const CITATION = `„Jsme předurčeni k tomu být šťastní i v nedokonalém světě.“`;
+
 export default function App({ Component, pageProps }: AppProps) {
   const [width, setWidth] = useState(0);
 
@@ -21,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Navbar />
         {width && width < 500 && (
           <div className="flex flex-col m-8 2xl:flex text-font-green">
-            <span>„Jsme předurčeni k tomu, být štastní v nedokonalém světě.“</span>
+            <span>{CITATION}</span>
             <span className="text-right">Albert Peso</span>
           </div>
         )}
@@ -31,13 +33,12 @@ export default function App({ Component, pageProps }: AppProps) {
         </main>
         <footer className="flex flex-wrap-reverse items-center justify-center gap-4 sm:mr-7 sm:ml-8 md:justify-between">
           <div className="m-1">
-            <p className="text-sm">© 2022 Kryštof Davídek</p>
+            <p className="text-sm">© 2023 Kryštof Davídek</p>
           </div>
           <div
             className={`flex ${
               width && width > 350 ? "text-xl" : "text-[1.5rem]"
-            } md:text-[1.5rem] font-bold flex-col items-center gap-4 m-1 md:items-start sm:flex-row`}
-          >
+            } md:text-[1.5rem] font-bold flex-col items-center gap-4 m-1 md:items-start sm:flex-row`}>
             <p>
               <span>E-mail: </span>
               <a href="mailto: davidek.email@gmail.com" className="text-font-green">

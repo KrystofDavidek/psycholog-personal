@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CloseIcon from "../assets/window-close-regular.svg";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
@@ -32,6 +32,17 @@ export default function CleanModalMini({ showModal, setShowModal }: any) {
     sendEmail(data);
   };
 
+  useEffect(() => {
+    const handleEsc = (event: { key: string }) => {
+      if (event.key === "Escape") setShowModal(false);
+    };
+    window.addEventListener("keydown", handleEsc);
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, []);
+
   return (
     <>
       {showModal ? (
@@ -42,8 +53,7 @@ export default function CleanModalMini({ showModal, setShowModal }: any) {
               onClick={() => {
                 setShowModal(false);
                 setMessage("");
-              }}
-            >
+              }}>
               <Image src={CloseIcon} alt="close" />
             </button>
             <div className="flex flex-col items-center justify-center p-5 text-center rounded-t border-blueGray-200">
@@ -61,14 +71,6 @@ export default function CleanModalMini({ showModal, setShowModal }: any) {
                   www.psycholog-terapeut-brno.cz
                 </a>
               </p>
-            </div>
-            <div className="flex flex-col self-center p-5 rounded-t border-blueGray-200">
-              <p>
-                Z technických důvodů není v tuto chvíli kontaktní formulář funkční, pro kontakt prosím využijte e-mail nebo
-                telefonní číslo zobrazené výše.
-              </p>
-              <br />
-              <p>Omlouváme se a děkujeme za pochopení.</p>
             </div>
           </div>
         </>
