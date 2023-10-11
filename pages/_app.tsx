@@ -4,12 +4,15 @@ import "tailwindcss/tailwind.css";
 import { AppProps } from "next/app";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { GA_TRACKING_ID, pageView } from "../utils/gtag";
 import Script from "next/script";
 
 export const CITATION = `„Jsme předurčeni k tomu být šťastní i v nedokonalém světě.“`;
 
 export default function App({ Component, pageProps }: AppProps) {
   const [width, setWidth] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -18,19 +21,34 @@ export default function App({ Component, pageProps }: AppProps) {
     window.dispatchEvent(new Event("resize"));
   }, []);
 
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      pageView(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <>
-      <div className="flex flex-col min-h-screen">
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-4WWXSKFH4D" />
-        <Script id="google-analytics">
-          {`
+      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            
-            gtag('config', 'G-4WWXSKFH4D');
-        `}
-        </Script>
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
+      <div className="flex flex-col min-h-screen">
         <Navbar />
         {width && width < 500 && (
           <div className="flex flex-col m-8 2xl:flex text-font-green">
