@@ -4,6 +4,7 @@ import "tailwindcss/tailwind.css";
 import { AppProps } from "next/app";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 export const CITATION = `„Jsme předurčeni k tomu být šťastní i v nedokonalém světě.“`;
 
@@ -20,6 +21,16 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <div className="flex flex-col min-h-screen">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-4WWXSKFH4D" />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-4WWXSKFH4D');
+        `}
+        </Script>
         <Navbar />
         {width && width < 500 && (
           <div className="flex flex-col m-8 2xl:flex text-font-green">
