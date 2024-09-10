@@ -61,7 +61,10 @@ export default function Home() {
             situací, kterým chtějí lépe porozumět a umět s nimi efektivněji pracovat. Spolupracuji také s těmi, kteří se ocitli ve
             složité životní situaci a potřebují se v ní zorientovat nebo se rozhodnout, jakým směrem se vydat. Rodičům dětí pak
             nabízím konzultace. Více informací o mě a způsobu mé práce najdete{' '}
-            <a href="https://www.psycholog-terapeut-brno.cz/o-mn%C4%9B">zde</a>.
+            <a className="underline" href="https://www.psycholog-terapeut-brno.cz/o-mn%C4%9B">
+              zde
+            </a>
+            .
           </p>
         </div>
         <div className={width && width > 700 ? 'self-center justify-self-center' : 'self-center'}>

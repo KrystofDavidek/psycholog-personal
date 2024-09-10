@@ -62,14 +62,19 @@ const about = () => {
           člověk cítí, co si myslí, jak se chová a jak tomu všemu rozumí. Kromě zaměření na emoce a myšlenky si také s klienty
           všímám, jak na situaci, kterou řeší, reaguje jejich tělo – například zda mají napjaté svaly, obtížně se jim dýchá nebo
           je něco bolí. Více o biosyntetické psychoterapii zde:{' '}
-          <a href="https://www.biosynteza.cz/">https://www.biosynteza.cz/</a>
+          <a className="underline" href="https://www.biosynteza.cz/">
+            https://www.biosynteza.cz/
+          </a>
         </p>
         <div className="grid gap-4 mt-4 xl:grid-cols-2 ">
           <div>
             <p className="pb-4">
               Dospělým klientům také nabízím spolupráci prostřednictvím metody EMDR, která je integrativní a komplexní
               psychoterapeutickým přístupem, pomáhající lidem zotavit se z problémů vyvolaných traumatickými událostmi v jejich
-              životě a z nich vyplývajících obtíží. Více o EMDR zde: <a href="https://www.emdr.cz">https://www.emdr.cz</a>
+              životě a z nich vyplývajících obtíží. Více o EMDR zde:{' '}
+              <a className="underline" href="https://www.emdr.cz">
+                https://www.emdr.cz
+              </a>
             </p>
 
             <p>S dětmi využívám prvky terapie hrou, která je pro ně přirozenou a bezpečnou formou jejich rozvoje.</p>
