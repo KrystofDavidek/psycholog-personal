@@ -1,35 +1,35 @@
-import "../styles/globals.css";
-import "tailwindcss/tailwind.css";
+import 'tailwindcss/tailwind.css'
+import '../styles/globals.css'
 
-import { AppProps } from "next/app";
-import Navbar from "../components/Navbar";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { GA_TRACKING_ID, pageView } from "../utils/gtag";
-import Script from "next/script";
+import { AppProps } from 'next/app'
+import { useRouter } from 'next/router'
+import Script from 'next/script'
+import { useEffect, useState } from 'react'
+import Navbar from '../components/Navbar'
+import { GA_TRACKING_ID, pageView } from '../utils/gtag'
 
-export const CITATION = `„Jsme předurčeni k tomu být šťastní i v nedokonalém světě.“`;
+export const CITATION = `„Jsme předurčeni k tomu být šťastní i v nedokonalém světě.“`
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [width, setWidth] = useState(0);
-  const router = useRouter();
+  const [width, setWidth] = useState(0)
+  const router = useRouter()
 
   useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWidth(window.innerWidth);
-    });
-    window.dispatchEvent(new Event("resize"));
-  }, []);
+    window.addEventListener('resize', () => {
+      setWidth(window.innerWidth)
+    })
+    window.dispatchEvent(new Event('resize'))
+  }, [])
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      pageView(url);
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
+      pageView(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router.events]);
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
   return (
     <>
@@ -45,7 +45,7 @@ export default function App({ Component, pageProps }: AppProps) {
             gtag('config', '${GA_TRACKING_ID}', {
               page_path: window.location.pathname,
             });
-          `,
+          `
         }}
       />
       <div className="flex flex-col min-h-screen">
@@ -62,11 +62,11 @@ export default function App({ Component, pageProps }: AppProps) {
         </main>
         <footer className="flex flex-wrap-reverse items-center justify-center gap-4 sm:mr-7 sm:ml-8 md:justify-between">
           <div className="m-1">
-            <p className="text-sm">© 2023 Kryštof Davídek</p>
+            <p className="text-sm">© 2024 Kryštof Davídek</p>
           </div>
           <div
             className={`flex ${
-              width && width > 350 ? "text-xl" : "text-[1.5rem]"
+              width && width > 350 ? 'text-xl' : 'text-[1.5rem]'
             } md:text-[1.5rem] font-bold flex-col items-center gap-4 m-1 md:items-start sm:flex-row`}>
             <p>
               <span>E-mail: </span>
@@ -85,5 +85,5 @@ export default function App({ Component, pageProps }: AppProps) {
         </footer>
       </div>
     </>
-  );
+  )
 }

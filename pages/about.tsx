@@ -1,18 +1,18 @@
-import Head from "next/head";
-import React, { useEffect, useState } from "react";
-import YouTube from "react-youtube";
-import useWindowDimensions from "../hooks/useWindowDimension";
+import Head from 'next/head'
+import React, { useEffect, useState } from 'react'
+import YouTube from 'react-youtube'
+import useWindowDimensions from '../hooks/useWindowDimension'
 
 const about = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { width } = useWindowDimensions();
+  const { width } = useWindowDimensions()
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [isLoaded, setLoaded] = useState(false);
+  const [isLoaded, setLoaded] = useState(false)
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    if (width) return setLoaded(true);
-  }, [width]);
+    if (width) return setLoaded(true)
+  }, [width])
 
   return (
     <>
@@ -50,25 +50,29 @@ const about = () => {
       </Head>
       <div className="min-h-full p-10 m-4 text-white bg-cover bg-motive">
         <p className="pb-4">
-          Jmenuji se Petr Davídek a působím jako psycholog a terapeut v Brně. V rámci své soukromé praxe nabízím psychologické
-          poradenství a terapii pro děti, dospívající a dospělé.
+          Jmenuji se Petr Davídek a působím jako psycholog a terapeut v Brně. V rámci své soukromé praxe nabízím psychoterapii
+          dospělé, děti a dospívající a psychologické poradenství a konzultace pro rodiče. Vedle soukromé praxe pracuji jako
+          školní psycholog na základní škole v Deblíně a externě vyučuji na pedagogické fakultě v Brně. Dlouhodobě se také věnuji
+          dětem s ADHD, pro které jsem vedl i několik specializovaných programů zaměřených na sociálně-emoční učení, podporu
+          jejich vztahů s vrstevníky a rozvoj pozitivních vzorců chování.
         </p>
         <p className="pb-4">
-          Vedle soukromé praxe působím jako školní psycholog na základní škole v Brně, kde poskytuji konzultace rodičům a
-          učitelům, pracuji se třídními kolektivy a individuálně s dětmi a dospívajícími. Dlouhodobě také pracuji s dětmi s ADHD,
-          pro které jsem vedl i vícero specializovaných programů zaměřených na sociálně-emoční učení, podporu jejich vztahů s
-          vrstevníky a pozitivních vzorců chování.
+          Při své práci respektuji jedinečnost a osobní tempo klientů a vycházím z biosyntetické psychoterapie – moderní metody v
+          psychosomatické psychoterapii, která podporuje přirozené zdroje a klade důraz na bezpečí a soulad mezi tím, jak se
+          člověk cítí, co si myslí, jak se chová a jak tomu všemu rozumí. Kromě zaměření na emoce a myšlenky si také s klienty
+          všímám, jak na situaci, kterou řeší, reaguje jejich tělo – například zda mají napjaté svaly, obtížně se jim dýchá nebo
+          je něco bolí. Více o biosyntetické psychoterapii zde:{' '}
+          <a href="https://www.biosynteza.cz/">https://www.biosynteza.cz/</a>
         </p>
         <div className="grid gap-4 mt-4 xl:grid-cols-2 ">
           <div>
-            <p>
-              Při své práci respektuji jedinečnost a osobní tempo klientů a vycházím z Biosyntetické psychoterapie - moderní
-              metody v psychosomatické psychoterapii, která rozvíjí přirozené zdroje a klade důraz na bezpečí a soulad mezi tím,
-              jak se člověk cítí, co si myslí, jak se chová a jak tomu všemu rozumí. Kromě zaměření se na to, co člověk cítí a co
-              si myslí, si také s klienty všímám, jak na situaci, kterou řeší, reaguje jejich tělo – jestli např. mají napjaté
-              svaly, obtížně se jim dýchá nebo je něco bolí apod.
+            <p className="pb-4">
+              Dospělým klientům také nabízím spolupráci prostřednictvím metody EMDR, která je integrativní a komplexní
+              psychoterapeutickým přístupem, pomáhající lidem zotavit se z problémů vyvolaných traumatickými událostmi v jejich
+              životě a z nich vyplývajících obtíží. Více o EMDR zde: <a href="https://www.emdr.cz">https://www.emdr.cz</a>
             </p>
-            <p>S dětmi využívám i prvky terapie hrou, která je pro ně přirozenou a bezpečnou formou jejich rozvoje.</p>
+
+            <p>S dětmi využívám prvky terapie hrou, která je pro ně přirozenou a bezpečnou formou jejich rozvoje.</p>
           </div>
           {isLoaded && (
             <div>
@@ -76,8 +80,8 @@ const about = () => {
                 <div className="flex justify-center">
                   <YouTube
                     opts={{
-                      height: "300",
-                      width: "600",
+                      height: '300',
+                      width: '600'
                     }}
                     videoId="7lmWOmyPRqA"
                   />
@@ -86,8 +90,8 @@ const about = () => {
                 <div className="flex justify-center">
                   <YouTube
                     opts={{
-                      height: "150",
-                      width: "250",
+                      height: '150',
+                      width: '250'
                     }}
                     videoId="7lmWOmyPRqA"
                   />
@@ -98,7 +102,7 @@ const about = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default about;
+export default about
