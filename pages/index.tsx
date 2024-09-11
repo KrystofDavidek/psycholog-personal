@@ -50,7 +50,7 @@ export default function Home() {
             <li>ADHD a projevech nepozornosti, hyperaktivity a impulzivity v chování,</li>
             <li>obtížích ve vztazích,</li>
             <li>nízkém sebevědomí, nedostatku důvěry ve vlastní schopnosti a možnost změny,</li>
-            <li>omezeních v životě spojených s traumatickými zážitky a na zvládánínáročných situací,</li>
+            <li>omezeních v životě spojených s traumatickými zážitky a na zvládání náročných situací,</li>
             <li>psychosomatických obtížích (např. bolesti břicha a hlavy při odchodu do školy či práce),</li>
             <li>problémech ve zvládání vzteku,</li>
             <li>úzkostech a obavách,</li>
@@ -60,7 +60,7 @@ export default function Home() {
             Jsem tu pro dospělé, děti a dospívající, kteří se v životě cítí být něčím omezováni nebo se opakovaně dostávají do
             situací, kterým chtějí lépe porozumět a umět s nimi efektivněji pracovat. Spolupracuji také s těmi, kteří se ocitli ve
             složité životní situaci a potřebují se v ní zorientovat nebo se rozhodnout, jakým směrem se vydat. Rodičům dětí pak
-            nabízím konzultace. Více informací o mě a způsobu mé práce najdete{' '}
+            nabízím konzultace. Více informací o mně a způsobu mé práce najdete{' '}
             <a className="underline" href="https://www.psycholog-terapeut-brno.cz/o-mn%C4%9B">
               zde
             </a>
