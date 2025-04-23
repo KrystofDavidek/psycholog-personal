@@ -2,9 +2,11 @@ import 'tailwindcss/tailwind.css'
 import '../styles/globals.css'
 
 import { AppProps } from 'next/app'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 import { useEffect, useState } from 'react'
+import img from '../assets/CESKa-ASOCIACE.png'
 import Navbar from '../components/Navbar'
 import { GA_TRACKING_ID, pageView } from '../utils/gtag'
 
@@ -60,14 +62,15 @@ export default function App({ Component, pageProps }: AppProps) {
         <main className="flex flex-col justify-between min-h-full sm:m-5">
           <Component {...pageProps} />
         </main>
-        <footer className="flex flex-wrap-reverse items-center justify-center gap-4 sm:mr-7 sm:ml-8 md:justify-between">
-          <div className="m-1">
-            <p className="text-sm">© 2024 Kryštof Davídek</p>
+        <footer className="flex flex-wrap-reverse gap-4 justify-center items-center sm:mr-7 sm:ml-8 md:justify-between">
+          <div className="flex gap-2 items-center">
+            <Image placeholder="blur" src={img} alt="Ceska asociace psychoterapie" width={95} height={70} />
+            <p className="text-sm">© 2025 Kryštof Davídek</p>
           </div>
           <div
             className={`flex ${
               width && width > 350 ? 'text-xl' : 'text-[1.5rem]'
-            } md:text-[1.5rem] font-bold flex-col items-center gap-4 m-1 md:items-start sm:flex-row`}>
+            } md:text-[1.5rem] font-bold flex-col items-center gap-4 m-1 md:items-center sm:flex-row `}>
             <p>
               <span>E-mail: </span>
               <a href="mailto: davidek.email@gmail.com" className="text-font-green">

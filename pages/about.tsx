@@ -48,7 +48,7 @@ const about = () => {
           crossOrigin=""
         />
       </Head>
-      <div className="min-h-full p-10 m-4 text-white bg-cover bg-motive">
+      <div className="p-10 m-4 min-h-full text-white bg-cover bg-motive">
         <p className="pb-4">
           Jmenuji se Petr Davídek a působím jako psycholog a terapeut v Brně. V rámci své soukromé praxe nabízím psychoterapii
           dospělé, děti a dospívající a psychologické poradenství a konzultace pro rodiče. Vedle soukromé praxe pracuji jako
@@ -66,18 +66,21 @@ const about = () => {
             https://www.biosynteza.cz/
           </a>
         </p>
-        <div className="grid gap-4 mt-4 xl:grid-cols-2 ">
+        <div className="grid gap-4 mt-4 xl:grid-cols-2">
           <div>
             <p className="pb-4">
-              Dospělým klientům také nabízím spolupráci prostřednictvím metody EMDR, která je integrativní a komplexní
+              Klientům také nabízím spolupráci prostřednictvím metody EMDR, která je integrativním a komplexním
               psychoterapeutickým přístupem, pomáhající lidem zotavit se z problémů vyvolaných traumatickými událostmi v jejich
-              životě a z nich vyplývajících obtíží. Více o EMDR zde:{' '}
+              životě a z nich vyplývajících obtíží. Více o EMDR zde:
               <a className="underline" href="https://www.emdr.cz">
                 https://www.emdr.cz
               </a>
             </p>
 
-            <p>S dětmi využívám prvky terapie hrou, která je pro ně přirozenou a bezpečnou formou jejich rozvoje.</p>
+            <p className="pb-4">
+              S dětmi využívám prvky terapie hrou, která je pro ně přirozenou a bezpečnou formou jejich rozvoje.
+            </p>
+            <p>Jsem členem České asociace pro psychoterapii (ČAP).</p>
           </div>
           {isLoaded && (
             <div>
