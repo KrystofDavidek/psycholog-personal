@@ -62,7 +62,7 @@ const first = () => {
             </p>
             <p>
               Na mé služby je možné čerpat finanční příspěvek od Všeobecné zdravotní pojišťovny (VZP). Podrobné informace o
-              příspěvku a podmínkách jeho čerpání naleznete
+              příspěvku a podmínkách jeho čerpání naleznete{' '}
               <a className="underline" href="https://dusevnizdravi.vzp.cz/informace-o-prispevku/">
                 zde
               </a>

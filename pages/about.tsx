@@ -71,7 +71,7 @@ const about = () => {
             <p className="pb-4">
               Klientům také nabízím spolupráci prostřednictvím metody EMDR, která je integrativním a komplexním
               psychoterapeutickým přístupem, pomáhající lidem zotavit se z problémů vyvolaných traumatickými událostmi v jejich
-              životě a z nich vyplývajících obtíží. Více o EMDR zde:
+              životě a z nich vyplývajících obtíží. Více o EMDR zde:{' '}
               <a className="underline" href="https://www.emdr.cz">
                 https://www.emdr.cz
               </a>

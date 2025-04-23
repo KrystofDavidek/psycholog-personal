@@ -64,7 +64,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </main>
         <footer className="flex flex-wrap-reverse gap-4 justify-center items-center sm:mr-7 sm:ml-8 md:justify-between">
           <div className="flex gap-2 items-center">
-            <Image placeholder="blur" src={img} alt="Ceska asociace psychoterapie" width={95} height={70} />
+            <Image placeholder="blur" src={img} alt="Česká asociace psychoterapie" width={130} height={100} />
             <p className="text-sm">© 2025 Kryštof Davídek</p>
           </div>
           <div
