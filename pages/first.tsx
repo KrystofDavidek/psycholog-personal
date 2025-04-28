@@ -73,7 +73,7 @@ const first = () => {
             placeholder="blur"
             src={img1}
             alt="Pracovna 1"
-            width={width && width < 1600 && width > 1520 ? 350 : 400}
+            width={350}
             height={400}
             layout={width && width > 1300 ? 'fixed' : 'responsive'}
           />
@@ -81,7 +81,7 @@ const first = () => {
             placeholder="blur"
             src={img2}
             alt="Pracovna 2"
-            width={width && width < 1600 && width > 1520 ? 350 : 400}
+            width={350}
             height={400}
             layout={width && width > 1300 ? 'fixed' : 'responsive'}
           />
