@@ -1,9 +1,6 @@
+/** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  env: {
-    BASE_URL: process.env.BASE_URL,
-  },
-  productionBrowserSourceMaps: true,
   async rewrites() {
     return [
       {
@@ -21,6 +18,10 @@ module.exports = {
       {
         source: "/kontakt",
         destination: "/contact",
+      },
+      {
+        source: "/error",
+        destination: "/error-page",
       },
     ];
   },

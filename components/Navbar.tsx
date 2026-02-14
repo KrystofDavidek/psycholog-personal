@@ -1,10 +1,11 @@
+'use client'
+
 import { useState, useEffect, FC } from "react";
-import { useRouter } from "next/dist/client/router";
-import { useRouter as useNextRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import useWindowDimensions from "../hooks/useWindowDimension";
-import { CITATION } from "../pages/_app";
 
+export const CITATION = `„Jsme předurčeni k tomu být šťastní i v nedokonalém světě."`;
 
 const routes = {
   "": "",
@@ -16,7 +17,7 @@ const routes = {
 
 type Routes = keyof typeof routes;
 
-const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Function; name: string; routeName: Routes }> = ({
+const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: (name: string) => void; name: string; routeName: Routes }> = ({
   isSide,
   activeItem,
   name,
@@ -27,16 +28,15 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
     const isActive = activeItem === name;
     return (
       <li>
-        <Link href={`/${routeName}`} as={`/${routes[routeName]}`}>
-          <a
-            onClick={() => setActiveItem(name)}
-            className={`block px-4 py-3 rounded-lg font-medium transition-smooth ${
-              isActive
-                ? "bg-font-green text-white"
-                : "text-gray-700 hover:bg-gray-100"
-            }`}>
-            {name}
-          </a>
+        <Link
+          href={`/${routes[routeName]}`}
+          onClick={() => setActiveItem(name)}
+          className={`block px-4 py-3 rounded-lg font-medium transition-smooth ${
+            isActive
+              ? "bg-font-green text-white"
+              : "text-gray-700 hover:bg-gray-100"
+          }`}>
+          {name}
         </Link>
       </li>
     );
@@ -44,16 +44,11 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
 
   return activeItem !== name ? (
     <div>
-      <Link href={`/${routeName}`} as={`/${routes[routeName]}`}>
-        <a className="font-bold transition-smooth">
-          <span
-            onClick={() => {
-              setActiveItem(name);
-            }}
-            className="hover:text-font-green">
-            {name}
-          </span>
-        </a>
+      <Link
+        href={`/${routes[routeName]}`}
+        className="font-bold transition-smooth"
+        onClick={() => setActiveItem(name)}>
+        <span className="hover:text-font-green">{name}</span>
       </Link>
     </div>
   ) : (
@@ -70,8 +65,7 @@ const Navbar = () => {
     isSideMenuOpen ? setIsSideMenuOpen(false) : setIsSideMenuOpen(true);
   };
   const [activeItem, setActiveItem] = useState<string>("Úvod");
-  const { pathname } = useRouter();
-  const router = useNextRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleEsc = (event: { key: string }) => {
@@ -92,32 +86,15 @@ const Navbar = () => {
     setIsSideMenuOpen(false);
   }, [width]);
 
+  // Sync active item with current pathname
   useEffect(() => {
-    if (router.asPath === "/o-mn%C4%9B") {
-      setActiveItem("O mně");
-      return;
-    }
-    if (router.asPath === "/prvn%C3%AD-setk%C3%A1n%C3%AD") {
-      setActiveItem("První setkání");
-      return;
-    }
-    if (router.asPath === "/m%C3%A1-praxe") {
-      setActiveItem("Má praxe");
-      return;
-    }
-    if (router.asPath === "/kontakt") {
-      setActiveItem("Kontakt");
-      return;
-    }
-  }, [router.asPath]);
-
-  useEffect(() => {
-    if (pathname === "/") setActiveItem("Úvod");
-    if (pathname === "/o-mně") setActiveItem("O mně");
-    if (pathname === "/první-setkání") setActiveItem("První setkání");
-    if (pathname === "/má-praxe") setActiveItem("Má praxe");
-    if (pathname === "/kontakt") setActiveItem("Kontakt");
-  }, []);
+    const decoded = decodeURIComponent(pathname);
+    if (decoded === "/") setActiveItem("Úvod");
+    else if (decoded === "/o-mně" || pathname === "/about") setActiveItem("O mně");
+    else if (decoded === "/první-setkání" || pathname === "/first") setActiveItem("První setkání");
+    else if (decoded === "/má-praxe" || pathname === "/practice") setActiveItem("Má praxe");
+    else if (decoded === "/kontakt" || pathname === "/contact") setActiveItem("Kontakt");
+  }, [pathname]);
 
   return (
     <>
@@ -138,9 +115,9 @@ const Navbar = () => {
         </div>
       </nav>
       <div className="hidden lg:flex justify-end pr-[2.5rem] pb-2">
-        <p className="text-font-green italic text-right text-sm max-w-sm">
+        <p className="text-font-green italic font-medium text-right text-sm max-w-sm">
           {CITATION}
-          <span className="block mt-1 text-xs not-italic font-medium text-font-green/70">— Albert Peso</span>
+          <span className="block mt-1 text-xs not-italic font-semibold text-font-green/70">— Albert Peso</span>
         </p>
       </div>
 
@@ -154,7 +131,7 @@ const Navbar = () => {
   );
 };
 
-const SideMenu: FC<{ activeItem: string; setActiveItem: Function; onClose: () => void }> = ({ activeItem, setActiveItem, onClose }) => {
+const SideMenu: FC<{ activeItem: string; setActiveItem: (name: string) => void; onClose: () => void }> = ({ activeItem, setActiveItem, onClose }) => {
   return (
     <div className="fixed top-0 left-0 z-20 w-3/4 max-w-xs h-screen bg-white lg:hidden side-menu-enter shadow-soft-lg flex flex-col">
       <div className="flex items-center justify-between px-5 pt-6 pb-4 border-b border-gray-100">
