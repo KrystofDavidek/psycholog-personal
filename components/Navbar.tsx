@@ -1,8 +1,11 @@
+'use client'
+
 import { useState, useEffect, FC } from "react";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import useWindowDimensions from "../hooks/useWindowDimension";
-import { CITATION } from "../pages/_app";
+
+export const CITATION = `„Jsme předurčeni k tomu být šťastní i v nedokonalém světě."`;
 
 const routes = {
   "": "",
@@ -26,8 +29,7 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: (name: 
     return (
       <li>
         <Link
-          href={`/${routeName}`}
-          as={`/${routes[routeName]}`}
+          href={`/${routes[routeName]}`}
           onClick={() => setActiveItem(name)}
           className={`block px-4 py-3 rounded-lg font-medium transition-smooth ${
             isActive
@@ -43,8 +45,7 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: (name: 
   return activeItem !== name ? (
     <div>
       <Link
-        href={`/${routeName}`}
-        as={`/${routes[routeName]}`}
+        href={`/${routes[routeName]}`}
         className="font-bold transition-smooth"
         onClick={() => setActiveItem(name)}>
         <span className="hover:text-font-green">{name}</span>
@@ -64,7 +65,7 @@ const Navbar = () => {
     isSideMenuOpen ? setIsSideMenuOpen(false) : setIsSideMenuOpen(true);
   };
   const [activeItem, setActiveItem] = useState<string>("Úvod");
-  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleEsc = (event: { key: string }) => {
@@ -85,32 +86,15 @@ const Navbar = () => {
     setIsSideMenuOpen(false);
   }, [width]);
 
+  // Sync active item with current pathname
   useEffect(() => {
-    if (router.asPath === "/o-mn%C4%9B") {
-      setActiveItem("O mně");
-      return;
-    }
-    if (router.asPath === "/prvn%C3%AD-setk%C3%A1n%C3%AD") {
-      setActiveItem("První setkání");
-      return;
-    }
-    if (router.asPath === "/m%C3%A1-praxe") {
-      setActiveItem("Má praxe");
-      return;
-    }
-    if (router.asPath === "/kontakt") {
-      setActiveItem("Kontakt");
-      return;
-    }
-  }, [router.asPath]);
-
-  useEffect(() => {
-    if (router.pathname === "/") setActiveItem("Úvod");
-    if (router.pathname === "/o-mně") setActiveItem("O mně");
-    if (router.pathname === "/první-setkání") setActiveItem("První setkání");
-    if (router.pathname === "/má-praxe") setActiveItem("Má praxe");
-    if (router.pathname === "/kontakt") setActiveItem("Kontakt");
-  }, []);
+    const decoded = decodeURIComponent(pathname);
+    if (decoded === "/") setActiveItem("Úvod");
+    else if (decoded === "/o-mně" || pathname === "/about") setActiveItem("O mně");
+    else if (decoded === "/první-setkání" || pathname === "/first") setActiveItem("První setkání");
+    else if (decoded === "/má-praxe" || pathname === "/practice") setActiveItem("Má praxe");
+    else if (decoded === "/kontakt" || pathname === "/contact") setActiveItem("Kontakt");
+  }, [pathname]);
 
   return (
     <>

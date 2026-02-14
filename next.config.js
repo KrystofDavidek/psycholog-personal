@@ -19,6 +19,10 @@ module.exports = {
         source: "/kontakt",
         destination: "/contact",
       },
+      {
+        source: "/error",
+        destination: "/error-page",
+      },
     ];
   },
 };
