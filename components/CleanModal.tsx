@@ -1,37 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import CloseIcon from "../assets/window-close-regular.svg";
 import Image from "next/image";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { sendEmail } from "../utils/sendEmail";
 
-export default function CleanModal({ showModal, setShowModal }: any) {
-  const [message, setMessage] = useState("");
+interface ModalProps {
+  showModal: boolean;
+  setShowModal: (show: boolean) => void;
+}
 
-  const schema = yup.object().shape({
-    name: yup.string(),
-    email: yup.string().email().required(),
-    phoneNumber: yup.string(),
-    message: yup.string(),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({
-    mode: "onBlur",
-    resolver: yupResolver(schema),
-  });
-
-  const onSubmit = (data: any) => {
-    reset();
-    setShowModal(false);
-    sendEmail(data);
-  };
-
+export default function CleanModal({ showModal, setShowModal }: ModalProps) {
   useEffect(() => {
     const handleEsc = (event: { key: string }) => {
       if (event.key === "Escape") setShowModal(false);
@@ -41,7 +17,7 @@ export default function CleanModal({ showModal, setShowModal }: any) {
     return () => {
       window.removeEventListener("keydown", handleEsc);
     };
-  }, []);
+  }, [setShowModal]);
 
   return (
     <>
@@ -49,17 +25,12 @@ export default function CleanModal({ showModal, setShowModal }: any) {
         <>
           <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
             <div className="relative w-full max-w-[60rem] mx-auto my-6 ">
-              {/*content*/}
               <div className="relative flex flex-col w-full bg-white border-0 rounded-xl shadow-soft-lg outline-none sm:p-4 focus:outline-none">
                 <button
                   className="float-right p-4 ml-auto bg-transparent border-0 outline-none w-14 h-14 focus:outline-none transition-smooth hover:opacity-70"
-                  onClick={() => {
-                    setShowModal(false);
-                    setMessage("");
-                  }}>
+                  onClick={() => setShowModal(false)}>
                   <Image src={CloseIcon} alt="close" />
                 </button>
-                {/*header*/}
                 <div className="flex flex-col items-center justify-center p-5 text-center rounded-t border-blueGray-200">
                   <h1 className="pb-5 mt-[-4rem] mb-2 text-3xl font-semibold text-font-green">Kontakt a domluva setkání</h1>
                   <p>

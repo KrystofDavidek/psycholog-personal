@@ -1,18 +1,12 @@
+import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default (req, res) => {
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
   const { name, email, phoneNumber, message } = req.body;
-
-  // const transporter = nodemailer.createTransport({
-  //   service: "gmail",
-  //   auth: {
-  //     user: process.env.NEXT_PUBLIC_EMAIL,
-  //     pass: process.env.NEXT_PUBLIC_PASSWORD,
-  //   },
-  // });
-
-  console.log(process.env.NEXT_PUBLIC_EMAIL);
 
   const transporter = nodemailer.createTransport({
     host: "smtp.seznam.cz",
@@ -40,11 +34,9 @@ export default (req, res) => {
 
   transporter.sendMail(mailOption, (err, data) => {
     if (err) {
-      console.log("error" + JSON.stringify(err));
-      res.send("error" + JSON.stringify(err));
+      res.status(500).json({ error: "Failed to send email" });
     } else {
-      console.log("success");
-      res.send("success");
+      res.status(200).json({ message: "success" });
     }
   });
-};
+}

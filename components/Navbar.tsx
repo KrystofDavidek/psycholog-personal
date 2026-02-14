@@ -1,10 +1,8 @@
 import { useState, useEffect, FC } from "react";
-import { useRouter } from "next/dist/client/router";
-import { useRouter as useNextRouter } from "next/router";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import useWindowDimensions from "../hooks/useWindowDimension";
 import { CITATION } from "../pages/_app";
-
 
 const routes = {
   "": "",
@@ -16,7 +14,7 @@ const routes = {
 
 type Routes = keyof typeof routes;
 
-const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Function; name: string; routeName: Routes }> = ({
+const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: (name: string) => void; name: string; routeName: Routes }> = ({
   isSide,
   activeItem,
   name,
@@ -27,16 +25,16 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
     const isActive = activeItem === name;
     return (
       <li>
-        <Link href={`/${routeName}`} as={`/${routes[routeName]}`}>
-          <a
-            onClick={() => setActiveItem(name)}
-            className={`block px-4 py-3 rounded-lg font-medium transition-smooth ${
-              isActive
-                ? "bg-font-green text-white"
-                : "text-gray-700 hover:bg-gray-100"
-            }`}>
-            {name}
-          </a>
+        <Link
+          href={`/${routeName}`}
+          as={`/${routes[routeName]}`}
+          onClick={() => setActiveItem(name)}
+          className={`block px-4 py-3 rounded-lg font-medium transition-smooth ${
+            isActive
+              ? "bg-font-green text-white"
+              : "text-gray-700 hover:bg-gray-100"
+          }`}>
+          {name}
         </Link>
       </li>
     );
@@ -44,16 +42,12 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
 
   return activeItem !== name ? (
     <div>
-      <Link href={`/${routeName}`} as={`/${routes[routeName]}`}>
-        <a className="font-bold transition-smooth">
-          <span
-            onClick={() => {
-              setActiveItem(name);
-            }}
-            className="hover:text-font-green">
-            {name}
-          </span>
-        </a>
+      <Link
+        href={`/${routeName}`}
+        as={`/${routes[routeName]}`}
+        className="font-bold transition-smooth"
+        onClick={() => setActiveItem(name)}>
+        <span className="hover:text-font-green">{name}</span>
       </Link>
     </div>
   ) : (
@@ -70,8 +64,7 @@ const Navbar = () => {
     isSideMenuOpen ? setIsSideMenuOpen(false) : setIsSideMenuOpen(true);
   };
   const [activeItem, setActiveItem] = useState<string>("Úvod");
-  const { pathname } = useRouter();
-  const router = useNextRouter();
+  const router = useRouter();
 
   useEffect(() => {
     const handleEsc = (event: { key: string }) => {
@@ -112,11 +105,11 @@ const Navbar = () => {
   }, [router.asPath]);
 
   useEffect(() => {
-    if (pathname === "/") setActiveItem("Úvod");
-    if (pathname === "/o-mně") setActiveItem("O mně");
-    if (pathname === "/první-setkání") setActiveItem("První setkání");
-    if (pathname === "/má-praxe") setActiveItem("Má praxe");
-    if (pathname === "/kontakt") setActiveItem("Kontakt");
+    if (router.pathname === "/") setActiveItem("Úvod");
+    if (router.pathname === "/o-mně") setActiveItem("O mně");
+    if (router.pathname === "/první-setkání") setActiveItem("První setkání");
+    if (router.pathname === "/má-praxe") setActiveItem("Má praxe");
+    if (router.pathname === "/kontakt") setActiveItem("Kontakt");
   }, []);
 
   return (
@@ -154,7 +147,7 @@ const Navbar = () => {
   );
 };
 
-const SideMenu: FC<{ activeItem: string; setActiveItem: Function; onClose: () => void }> = ({ activeItem, setActiveItem, onClose }) => {
+const SideMenu: FC<{ activeItem: string; setActiveItem: (name: string) => void; onClose: () => void }> = ({ activeItem, setActiveItem, onClose }) => {
   return (
     <div className="fixed top-0 left-0 z-20 w-3/4 max-w-xs h-screen bg-white lg:hidden side-menu-enter shadow-soft-lg flex flex-col">
       <div className="flex items-center justify-between px-5 pt-6 pb-4 border-b border-gray-100">

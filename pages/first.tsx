@@ -1,12 +1,10 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import Head from 'next/head'
 import Image from 'next/image'
-import React from 'react'
 import img1 from '../assets/pracovna1.png'
 import img2 from '../assets/pracovna2.png'
 import useWindowDimensions from '../hooks/useWindowDimension'
 
-const first = () => {
+export default function First() {
   const { width } = useWindowDimensions()
 
   return (
@@ -69,26 +67,45 @@ const first = () => {
               .
             </p>
           </div>
-          <Image
-            placeholder="blur"
-            src={img1}
-            alt="Pracovna 1"
-            width={350}
-            height={400}
-            layout={width && width > 1300 ? 'fixed' : 'responsive'}
-          />
-          <Image
-            placeholder="blur"
-            src={img2}
-            alt="Pracovna 2"
-            width={350}
-            height={400}
-            layout={width && width > 1300 ? 'fixed' : 'responsive'}
-          />
+          {width && width > 1300 ? (
+            <>
+              <Image
+                placeholder="blur"
+                src={img1}
+                alt="Pracovna 1"
+                width={350}
+                height={400}
+              />
+              <Image
+                placeholder="blur"
+                src={img2}
+                alt="Pracovna 2"
+                width={350}
+                height={400}
+              />
+            </>
+          ) : (
+            <>
+              <Image
+                placeholder="blur"
+                src={img1}
+                alt="Pracovna 1"
+                width={350}
+                height={400}
+                style={{ width: '100%', height: 'auto' }}
+              />
+              <Image
+                placeholder="blur"
+                src={img2}
+                alt="Pracovna 2"
+                width={350}
+                height={400}
+                style={{ width: '100%', height: 'auto' }}
+              />
+            </>
+          )}
         </div>
       </div>
     </div>
   )
 }
-
-export default first

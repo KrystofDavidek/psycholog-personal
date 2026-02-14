@@ -68,15 +68,25 @@ export default function Home() {
           </p>
         </div>
         <div className={width && width > 700 ? 'self-center justify-self-center' : 'self-center'}>
-          <Image
-            placeholder="blur"
-            height={400}
-            width={400}
-            layout={width && width > 700 ? 'fixed' : 'responsive'}
-            objectFit="contain"
-            src={ProfileImg}
-            alt="Profilová fotka"
-          />
+          {width && width > 700 ? (
+            <Image
+              placeholder="blur"
+              height={400}
+              width={400}
+              style={{ objectFit: 'contain' }}
+              src={ProfileImg}
+              alt="Profilová fotka"
+            />
+          ) : (
+            <Image
+              placeholder="blur"
+              height={400}
+              width={400}
+              style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+              src={ProfileImg}
+              alt="Profilová fotka"
+            />
+          )}
         </div>
       </div>
     </div>

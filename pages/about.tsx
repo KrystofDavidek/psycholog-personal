@@ -1,15 +1,12 @@
 import Head from 'next/head'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import YouTube from 'react-youtube'
 import useWindowDimensions from '../hooks/useWindowDimension'
 
-const about = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export default function About() {
   const { width } = useWindowDimensions()
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [isLoaded, setLoaded] = useState(false)
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     if (width) return setLoaded(true)
   }, [width])
@@ -112,5 +109,3 @@ const about = () => {
     </>
   )
 }
-
-export default about

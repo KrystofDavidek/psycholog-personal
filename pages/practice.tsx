@@ -3,8 +3,7 @@ import Image from 'next/image'
 import ProfileImg from '../assets/profilovka-orez.png'
 import useWindowDimensions from '../hooks/useWindowDimension'
 
-const practice = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export default function Practice() {
   const { width } = useWindowDimensions()
 
   return (
@@ -77,19 +76,27 @@ const practice = () => {
           </ul>
         </div>
         <div className={width && width > 700 ? 'self-center justify-self-center' : 'self-center'}>
-          <Image
-            placeholder="blur"
-            height={400}
-            width={400}
-            layout={width && width > 700 ? 'fixed' : 'responsive'}
-            objectFit="contain"
-            src={ProfileImg}
-            alt="Profilová fotka"
-          />
+          {width && width > 700 ? (
+            <Image
+              placeholder="blur"
+              height={400}
+              width={400}
+              style={{ objectFit: 'contain' }}
+              src={ProfileImg}
+              alt="Profilová fotka"
+            />
+          ) : (
+            <Image
+              placeholder="blur"
+              height={400}
+              width={400}
+              style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+              src={ProfileImg}
+              alt="Profilová fotka"
+            />
+          )}
         </div>
       </div>
     </>
   )
 }
-
-export default practice
