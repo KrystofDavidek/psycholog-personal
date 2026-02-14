@@ -45,7 +45,7 @@ const first = () => {
         />
       </Head>
 
-      <div className="p-10 m-4 text-white bg-cover 2xl:pr-0 2xl:h-full bg-motive">
+      <div className="p-10 m-4 text-white bg-cover 2xl:pr-0 2xl:h-full bg-motive bg-motive-overlay rounded-xl">
         <p className="pb-4">
           V průběhu úvodního setkání mám možnost se seznámit s tématem, se kterým za mnou přicházíte a domluvit se s Vámi na formě
           spolupráce, která Vám bude nejvíce vyhovovat. Nabízím krátkodobou i dlouhodobější formu spolupráce. Na první setkání je

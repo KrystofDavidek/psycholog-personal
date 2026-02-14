@@ -48,7 +48,7 @@ const about = () => {
           crossOrigin=""
         />
       </Head>
-      <div className="p-10 m-4 min-h-full text-white bg-cover bg-motive">
+      <div className="p-10 m-4 min-h-full text-white bg-cover bg-motive bg-motive-overlay rounded-xl">
         <p className="pb-4">
           Jmenuji se Petr Davídek a působím jako psycholog a terapeut v Brně. V rámci své soukromé praxe nabízím psychoterapii
           dospělé, děti a dospívající a psychologické poradenství a konzultace pro rodiče. Vedle soukromé praxe pracuji jako
