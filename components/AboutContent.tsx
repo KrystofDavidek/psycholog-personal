@@ -1,16 +1,4 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-import YouTube from 'react-youtube'
-
 export default function AboutContent() {
-  const [isReady, setIsReady] = useState(false)
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
-
   return (
     <div className="p-10 m-4 min-h-full text-white bg-cover bg-motive bg-motive-overlay rounded-xl">
       <p className="pb-4">
@@ -47,22 +35,15 @@ export default function AboutContent() {
           <p>Jsem členem České asociace pro psychoterapii (ČAP).</p>
         </div>
         <div className="flex justify-center items-center">
-          <div className="w-full max-w-[600px] aspect-video relative">
-            {!isReady && (
-              <div className="absolute inset-0 rounded-lg skeleton-shimmer flex items-center justify-center">
-                <svg className="w-12 h-12 text-white/40" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            )}
-            {isClient && (
-              <YouTube
-                className="w-full h-full"
-                iframeClassName="w-full h-full"
-                videoId="7lmWOmyPRqA"
-                onReady={() => setIsReady(true)}
-              />
-            )}
+          <div className="w-full max-w-[600px] aspect-video">
+            <iframe
+              className="w-full h-full rounded-lg"
+              src="https://www.youtube.com/embed/7lmWOmyPRqA"
+              title="Video o biosyntéze"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
