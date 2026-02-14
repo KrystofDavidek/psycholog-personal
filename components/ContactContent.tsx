@@ -5,7 +5,6 @@ import { useState } from 'react'
 import Map from '../assets/mapa-velka.png'
 import Outside from '../assets/venek.jpg'
 import CleanModal from './CleanModal'
-import CleanModalMini from './CleanModalMini'
 
 export default function ContactContent() {
   const [showModal, setShowModal] = useState(false)
@@ -29,14 +28,7 @@ export default function ContactContent() {
           >
             Kontakt a domluva setkání
           </button>
-          {/* Desktop modal */}
-          <div className="hidden xl:block">
-            <CleanModal showModal={showModal} setShowModal={setShowModal} />
-          </div>
-          {/* Mobile/tablet modal */}
-          <div className="block xl:hidden">
-            <CleanModalMini showModal={showModal} setShowModal={setShowModal} />
-          </div>
+          <CleanModal showModal={showModal} setShowModal={setShowModal} />
         </div>
         <div className="relative 2xl:col-span-4" style={{ width: '100%', height: '550px' }}>
           <Image src={Map} placeholder="blur" alt="Mapa" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
