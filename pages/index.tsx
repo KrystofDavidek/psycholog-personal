@@ -40,13 +40,13 @@ export default function Home() {
           crossOrigin=""
         />
       </Head>
-      <div className="grid gap-4 p-5 m-4 bg-cover xl:grid-cols-3 bg-motive bg-red">
+      <div className="grid gap-4 p-8 m-4 bg-cover xl:grid-cols-3 bg-motive bg-motive-overlay rounded-xl">
         <div className="text-white xl:col-span-2">
           <p className="pb-4">
             Jmenuji se Petr Davídek a působím jako psycholog a terapeut v Brně. S dospělými, dětmi a dospívajícími spolupracuji
             např. na:
           </p>
-          <ul className="p-4 ml-4 list-disc">
+          <ul className="p-4 ml-4 list-disc leading-relaxed">
             <li>ADHD a projevech nepozornosti, hyperaktivity a impulzivity v chování,</li>
             <li>obtížích ve vztazích,</li>
             <li>nízkém sebevědomí, nedostatku důvěry ve vlastní schopnosti a možnost změny,</li>

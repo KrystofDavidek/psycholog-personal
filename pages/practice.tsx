@@ -42,10 +42,10 @@ const practice = () => {
           crossOrigin=""
         />
       </Head>
-      <div className="grid xl:grid-cols-3 bg-cover p-10 gap-4 2xl:h-[550px] m-4 bg-motive">
+      <div className="grid xl:grid-cols-3 bg-cover p-10 gap-4 m-4 bg-motive bg-motive-overlay rounded-xl">
         <div className="text-white xl:col-span-2">
-          <p>Absolvované vzdělání a kurzy:</p>
-          <ul className="p-4 ml-4 list-disc">
+          <p className="text-lg font-semibold pb-2">Absolvované vzdělání a kurzy:</p>
+          <ul className="p-4 ml-4 list-disc leading-relaxed">
             <li>Mgr. vzdělání v oboru Psychologie, Filosofická fakulta Univerzity Palackého v Olomouci,</li>
             <li>Výcvik v psychotraumatologii a EMDR (I. a II. stupeň) - Český institut pro psychotraumatologii a EMDR,</li>
             <li>
@@ -55,8 +55,8 @@ const practice = () => {
             <li>Kurz Školní psycholog na ZŠ a SŠ, Filosofická fakulta Univerzity Palackého v Olomouci,</li>
             <li>Kurz Základní krizová intervence, Remedium Praha o. p. s. a další kurzy.</li>
           </ul>
-          <p className="pb-4">Praxe a další činnosti:</p>
-          <ul className="p-4 ml-4 list-disc">
+          <p className="text-lg font-semibold pt-4 pb-2">Praxe a další činnosti:</p>
+          <ul className="p-4 ml-4 list-disc leading-relaxed">
             <li>
               Psychologické poradenství, krizová intervence a individuální konzultace pro rodiče, učitele a žáky; práce se
               třídními kolektivy (ZŠ Hudcova, Brno; ZŠ a MŠ Deblín, Brno-venkov),

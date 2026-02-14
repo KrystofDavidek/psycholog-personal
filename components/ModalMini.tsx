@@ -36,9 +36,9 @@ export default function ModalMini({ showModal, setShowModal }: any) {
     <>
       {showModal ? (
         <>
-          <div className="absolute left-0 right-0 z-10 flex flex-col w-auto mx-8 bg-white border-0 rounded-lg shadow-lg outline-none sm:mx-16 sm:p-4 focus:outline-none">
+          <div className="absolute left-0 right-0 z-10 flex flex-col w-auto mx-8 bg-white border-0 rounded-xl shadow-soft-lg outline-none sm:mx-16 sm:p-4 focus:outline-none">
             <button
-              className="float-right p-4 ml-auto bg-transparent border-0 outline-none w-14 h-14 focus:outline-none"
+              className="float-right p-4 ml-auto bg-transparent border-0 outline-none w-14 h-14 focus:outline-none transition-smooth hover:opacity-70"
               onClick={() => {
                 setShowModal(false);
                 setMessage("");
@@ -49,15 +49,15 @@ export default function ModalMini({ showModal, setShowModal }: any) {
             <div className="flex flex-col items-center justify-center p-5 text-center rounded-t border-blueGray-200">
               <h1 className="pb-5 text-3xl font-semibold text-font-green">Kontakt a domluva setkání</h1>
               <p>
-                <a href="tel:734574243" className="hover:text-font-green">
+                <a href="tel:734574243" className="hover:text-font-green transition-smooth">
                   Tel: 734 574 243
                 </a>{" "}
                 |{" "}
-                <a className="hover:text-font-green" href="mailto: davidek.email@gmail.com">
+                <a className="hover:text-font-green transition-smooth" href="mailto: davidek.email@gmail.com">
                   davidek.email@gmail.com
                 </a>{" "}
                 |{" "}
-                <a className="hover:text-font-green" href="mailto: www.psycholog-terapeut-brno.cz">
+                <a className="hover:text-font-green transition-smooth" href="mailto: www.psycholog-terapeut-brno.cz">
                   www.psycholog-terapeut-brno.cz
                 </a>
               </p>
@@ -71,7 +71,7 @@ export default function ModalMini({ showModal, setShowModal }: any) {
                       <label className="block mb-2 text-sm font-bold text-gray-700">Jméno</label>
                       <input
                         {...register("name")}
-                        className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                        className="w-full px-3 py-2 leading-tight text-gray-700 border border-gray-300 rounded-lg shadow appearance-none focus:outline-none focus:ring-2 focus:ring-font-green focus:border-transparent"
                         id="name"
                         type="text"
                         placeholder="František Novák"
@@ -82,7 +82,7 @@ export default function ModalMini({ showModal, setShowModal }: any) {
 
                       <input
                         {...register("email")}
-                        className="w-full px-3 py-2 mb-3 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                        className="w-full px-3 py-2 mb-3 leading-tight text-gray-700 border border-gray-300 rounded-lg shadow appearance-none focus:outline-none focus:ring-2 focus:ring-font-green focus:border-transparent"
                         id="email"
                         type="email"
                         placeholder="novak@gmail.com"
@@ -93,7 +93,7 @@ export default function ModalMini({ showModal, setShowModal }: any) {
                       <label className="block mb-2 text-sm font-bold text-gray-700">Tel. číslo</label>
                       <input
                         {...register("number")}
-                        className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                        className="w-full px-3 py-2 leading-tight text-gray-700 border border-gray-300 rounded-lg shadow appearance-none focus:outline-none focus:ring-2 focus:ring-font-green focus:border-transparent"
                         id="number"
                         type="text"
                         placeholder="603465678"
@@ -105,7 +105,7 @@ export default function ModalMini({ showModal, setShowModal }: any) {
                       <label className="block mb-2 text-sm font-bold text-gray-700">Zde napište zprávu</label>
                       <textarea
                         {...register("message")}
-                        className="w-full h-[15.5rem] px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none resize-none focus:outline-none focus:shadow-outline"
+                        className="w-full h-[15.5rem] px-3 py-2 leading-tight text-gray-700 border border-gray-300 rounded-lg shadow appearance-none resize-none focus:outline-none focus:ring-2 focus:ring-font-green focus:border-transparent"
                         id="message"
                         placeholder="Rád bych si domluvil..."
                       />
@@ -115,7 +115,7 @@ export default function ModalMini({ showModal, setShowModal }: any) {
                 <div className="font-bold text-gray-700 ">{message && <p>{message}</p>}</div>
                 <div className="flex items-center justify-end py-6 rounded-b border-blueGray-200">
                   <button
-                    className="px-6 py-3 mb-1 text-white transition-all duration-150 ease-linear rounded shadow outline-none bg-font-green hover:shadow-lg focus:outline-none"
+                    className="px-6 py-3 mb-1 text-white transition-smooth rounded-lg shadow-soft outline-none bg-font-green hover:bg-green-dark focus:outline-none"
                     type="button"
                     onClick={handleSubmit(onSubmit)}>
                     Odeslat

@@ -52,17 +52,11 @@ export default function App({ Component, pageProps }: AppProps) {
       />
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        {width && width < 500 && (
-          <div className="flex flex-col m-8 2xl:flex text-font-green">
-            <span>{CITATION}</span>
-            <span className="text-right">Albert Peso</span>
-          </div>
-        )}
 
         <main className="flex flex-col justify-between min-h-full sm:m-5">
           <Component {...pageProps} />
         </main>
-        <footer className="flex flex-wrap-reverse gap-4 justify-center items-center sm:mr-7 sm:ml-8 md:justify-between">
+        <footer className="flex flex-wrap-reverse gap-4 justify-center items-center sm:mr-7 sm:ml-8 md:justify-between pt-6 mt-6 border-t border-gray-200">
           <div className="flex gap-2 items-center">
             <Image placeholder="blur" src={img} alt="Česká asociace psychoterapie" width={130} height={100} />
             <p className="text-sm">© 2025 Kryštof Davídek</p>
@@ -73,14 +67,14 @@ export default function App({ Component, pageProps }: AppProps) {
             } md:text-[1.5rem] font-bold flex-col items-center gap-4 m-1 md:items-center sm:flex-row `}>
             <p>
               <span>E-mail: </span>
-              <a href="mailto: davidek.email@gmail.com" className="text-font-green">
+              <a href="mailto: davidek.email@gmail.com" className="text-font-green transition-smooth hover:text-green-dark">
                 davidek.email@gmail.com
               </a>
               <span>,</span>
             </p>
             <p>
               <span>Tel: </span>
-              <a href="tel:734574243" className="text-font-green">
+              <a href="tel:734574243" className="text-font-green transition-smooth hover:text-green-dark">
                 734 574 243
               </a>
             </p>
