@@ -115,9 +115,9 @@ const Navbar = () => {
         </div>
       </nav>
       <div className="hidden lg:flex justify-end pr-[2.5rem] pb-2">
-        <p className="text-font-green italic text-right text-sm max-w-sm">
+        <p className="text-font-green italic font-medium text-right text-sm max-w-sm">
           {CITATION}
-          <span className="block mt-1 text-xs not-italic font-medium text-font-green/70">— Albert Peso</span>
+          <span className="block mt-1 text-xs not-italic font-semibold text-font-green/70">— Albert Peso</span>
         </p>
       </div>
 
