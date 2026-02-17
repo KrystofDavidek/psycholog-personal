@@ -53,37 +53,65 @@ export default function App({ Component, pageProps }: AppProps) {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         {width && width < 500 && (
-          <div className="flex flex-col m-8 2xl:flex text-font-green">
-            <span>{CITATION}</span>
-            <span className="text-right">Albert Peso</span>
+          <div className="bg-primary-50 py-6 px-8 mx-4 mt-4 rounded-lg">
+            <p className="text-primary-700 italic text-sm text-center">{CITATION}</p>
+            <p className="text-primary-800 font-semibold text-sm text-right mt-2">— Albert Peso</p>
           </div>
         )}
 
-        <main className="flex flex-col justify-between min-h-full sm:m-5">
+        <main className="flex flex-col flex-grow">
           <Component {...pageProps} />
         </main>
-        <footer className="flex flex-wrap-reverse gap-4 justify-center items-center sm:mr-7 sm:ml-8 md:justify-between">
-          <div className="flex gap-2 items-center">
-            <Image placeholder="blur" src={img} alt="Česká asociace psychoterapie" width={130} height={100} />
-            <p className="text-sm">© 2025 Kryštof Davídek</p>
-          </div>
-          <div
-            className={`flex ${
-              width && width > 350 ? 'text-xl' : 'text-[1.5rem]'
-            } md:text-[1.5rem] font-bold flex-col items-center gap-4 m-1 md:items-center sm:flex-row `}>
-            <p>
-              <span>E-mail: </span>
-              <a href="mailto: davidek.email@gmail.com" className="text-font-green">
-                davidek.email@gmail.com
-              </a>
-              <span>,</span>
-            </p>
-            <p>
-              <span>Tel: </span>
-              <a href="tel:734574243" className="text-font-green">
-                734 574 243
-              </a>
-            </p>
+
+        <footer className="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 mt-auto">
+          <div className="container-custom py-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+              {/* Association Logo */}
+              <div className="flex flex-col items-center md:items-start">
+                <Image
+                  placeholder="blur"
+                  src={img}
+                  alt="Česká asociace psychoterapie"
+                  width={150}
+                  height={115}
+                  className="mb-4"
+                />
+                <p className="text-sm text-gray-600">Člen České asociace pro psychoterapii</p>
+              </div>
+
+              {/* Contact Info */}
+              <div className="flex flex-col items-center md:items-start">
+                <h3 className="text-lg font-heading font-semibold text-gray-900 mb-4">Kontakt</h3>
+                <div className="space-y-3 text-center md:text-left">
+                  <a
+                    href="mailto:davidek.email@gmail.com"
+                    className="block text-gray-700 hover:text-primary-600 transition-colors">
+                    <span className="font-semibold">E-mail:</span> davidek.email@gmail.com
+                  </a>
+                  <a
+                    href="tel:734574243"
+                    className="block text-gray-700 hover:text-primary-600 transition-colors">
+                    <span className="font-semibold">Tel:</span> 734 574 243
+                  </a>
+                </div>
+              </div>
+
+              {/* Address */}
+              <div className="flex flex-col items-center md:items-start">
+                <h3 className="text-lg font-heading font-semibold text-gray-900 mb-4">Adresa pracoviště</h3>
+                <div className="text-gray-700 text-center md:text-left space-y-1">
+                  <p className="font-semibold">Terapie pod Špilberkem</p>
+                  <p>Údolní 222/5</p>
+                  <p>602 00, Brno</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Bar */}
+            <div className="border-t border-gray-200 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
+              <p>© {new Date().getFullYear()} Mgr. Petr Davídek. Všechna práva vyhrazena.</p>
+              <p className="mt-2 md:mt-0">Vytvořil: Kryštof Davídek</p>
+            </div>
           </div>
         </footer>
       </div>

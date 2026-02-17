@@ -47,30 +47,54 @@ export default function CleanModalMini({ showModal, setShowModal }: any) {
     <>
       {showModal ? (
         <>
-          <div className="absolute left-0 right-0 z-10 flex flex-col w-auto mx-8 bg-white border-0 rounded-lg shadow-lg outline-none sm:mx-16 sm:p-4 focus:outline-none">
-            <button
-              className="float-right p-4 ml-auto bg-transparent border-0 outline-none w-14 h-14 focus:outline-none"
-              onClick={() => {
-                setShowModal(false);
-                setMessage("");
-              }}>
-              <Image src={CloseIcon} alt="close" />
-            </button>
-            <div className="flex flex-col items-center justify-center p-5 text-center rounded-t border-blueGray-200">
-              <h1 className="pb-5 sm:mt-[-4rem] mb-2 text-3xl font-semibold text-font-green">Kontakt a domluva setkání</h1>
-              <p>
-                <a href="tel:734574243" className="hover:text-font-green">
-                  Tel: 734 574 243
-                </a>{" "}
-                |{" "}
-                <a className="hover:text-font-green" href="mailto: davidek.email@gmail.com">
-                  davidek.email@gmail.com
-                </a>{" "}
-                |{" "}
-                <a className="hover:text-font-green" href="mailto: www.psycholog-terapeut-brno.cz">
-                  www.psycholog-terapeut-brno.cz
-                </a>
-              </p>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm animate-fade-in"
+            onClick={() => setShowModal(false)}
+          />
+
+          {/* Modal */}
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div className="relative w-full max-w-md animate-scale-in">
+              <div className="relative flex flex-col w-full bg-white rounded-2xl shadow-hard">
+                {/* Close Button */}
+                <button
+                  className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-lg hover:bg-gray-100"
+                  onClick={() => {
+                    setShowModal(false);
+                    setMessage("");
+                  }}
+                  aria-label="Zavřít">
+                  <Image src={CloseIcon} alt="Zavřít" width={20} height={20} />
+                </button>
+
+                {/* Header */}
+                <div className="p-6 text-center border-b border-gray-100">
+                  <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4">
+                    Kontakt a domluva setkání
+                  </h2>
+                  <div className="flex flex-col gap-3 text-sm text-gray-700">
+                    <a
+                      href="tel:734574243"
+                      className="flex items-center justify-center gap-2 hover:text-primary-600 transition-colors">
+                      <span className="font-semibold">Tel:</span> 734 574 243
+                    </a>
+                    <a
+                      href="mailto:davidek.email@gmail.com"
+                      className="flex items-center justify-center gap-2 hover:text-primary-600 transition-colors">
+                      <span className="font-semibold">E-mail:</span> davidek.email@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <p className="text-center text-sm text-gray-600 leading-relaxed">
+                    Pro domluvu setkání mě prosím kontaktujte telefonicky nebo e-mailem.
+                    Těším se na Vaši zprávu a na možnost spolupráce.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </>

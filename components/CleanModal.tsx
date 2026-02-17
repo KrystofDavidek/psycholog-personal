@@ -47,39 +47,57 @@ export default function CleanModal({ showModal, setShowModal }: any) {
     <>
       {showModal ? (
         <>
-          <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
-            <div className="relative w-full max-w-[60rem] mx-auto my-6 ">
-              {/*content*/}
-              <div className="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none sm:p-4 focus:outline-none">
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm animate-fade-in"
+            onClick={() => setShowModal(false)}
+          />
+
+          {/* Modal */}
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-x-hidden overflow-y-auto">
+            <div className="relative w-full max-w-2xl animate-scale-in">
+              <div className="relative flex flex-col w-full bg-white rounded-2xl shadow-hard">
+                {/* Close Button */}
                 <button
-                  className="float-right p-4 ml-auto bg-transparent border-0 outline-none w-14 h-14 focus:outline-none"
+                  className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-lg hover:bg-gray-100"
                   onClick={() => {
                     setShowModal(false);
                     setMessage("");
-                  }}>
-                  <Image src={CloseIcon} alt="close" />
+                  }}
+                  aria-label="Zavřít">
+                  <Image src={CloseIcon} alt="Zavřít" width={24} height={24} />
                 </button>
-                {/*header*/}
-                <div className="flex flex-col items-center justify-center p-5 text-center rounded-t border-blueGray-200">
-                  <h1 className="pb-5 mt-[-4rem] mb-2 text-3xl font-semibold text-font-green">Kontakt a domluva setkání</h1>
-                  <p>
-                    <a href="tel:734574243" className="hover:text-font-green">
-                      Tel: 734 574 243
-                    </a>{" "}
-                    |{" "}
-                    <a className="hover:text-font-green" href="mailto: davidek.email@gmail.com">
-                      davidek.email@gmail.com
-                    </a>{" "}
-                    |{" "}
-                    <a className="hover:text-font-green" href="mailto: www.psycholog-terapeut-brno.cz">
-                      www.psycholog-terapeut-brno.cz
+
+                {/* Header */}
+                <div className="p-8 text-center border-b border-gray-100">
+                  <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">
+                    Kontakt a domluva setkání
+                  </h2>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-gray-700">
+                    <a
+                      href="tel:734574243"
+                      className="flex items-center gap-2 hover:text-primary-600 transition-colors">
+                      <span className="font-semibold">Tel:</span> 734 574 243
                     </a>
+                    <span className="hidden sm:inline text-gray-300">|</span>
+                    <a
+                      href="mailto:davidek.email@gmail.com"
+                      className="flex items-center gap-2 hover:text-primary-600 transition-colors">
+                      <span className="font-semibold">E-mail:</span> davidek.email@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-8">
+                  <p className="text-center text-gray-600 leading-relaxed">
+                    Pro domluvu setkání mě prosím kontaktujte telefonicky nebo e-mailem.
+                    Těším se na Vaši zprávu a na možnost spolupráce.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
         </>
       ) : null}
     </>

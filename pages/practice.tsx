@@ -7,6 +7,37 @@ const practice = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { width } = useWindowDimensions()
 
+  const education = [
+    'Mgr. vzdělání v oboru Psychologie, Filosofická fakulta Univerzity Palackého v Olomouci',
+    'Výcvik v psychotraumatologii a EMDR (I. a II. stupeň) - Český institut pro psychotraumatologii a EMDR',
+    'Komplexní psychoterapeutický výcvik v somatické a hlubinně orientované psychoterapii - Biosyntéze; Český institut Biosyntézy z.s',
+    'Kurz Školní psycholog na ZŠ a SŠ, Filosofická fakulta Univerzity Palackého v Olomouci',
+    'Kurz Základní krizová intervence, Remedium Praha o. p. s. a další kurzy',
+  ]
+
+  const experience = [
+    {
+      title: 'Školní psycholog a práce s dětmi',
+      description: 'Psychologické poradenství, krizová intervence a individuální konzultace pro rodiče, učitele a žáky; práce se třídními kolektivy (ZŠ Hudcova, Brno; ZŠ a MŠ Deblín, Brno-venkov)',
+    },
+    {
+      title: 'Akademická činnost',
+      description: 'Externí vyučující na Pedagogické fakultě Masarykovy univerzity v Brně – spolupráce na výuce pedagogické psychologie pro budoucí učitele a speciální pedagogy',
+    },
+    {
+      title: 'Probační služba',
+      description: 'Individuální a rodinné poradenství pro mladistvé a jejich rodinné příslušníky; lektorování skupinových setkání zaměřených na zvládání agrese u mladistvých (Probační a mediační služba ČR)',
+    },
+    {
+      title: 'Specializace na ADHD',
+      description: 'Poradenství pro učitele žáků s ADHD; metodik a lektor preventivních programů pro třídní kolektivy s dětmi s ADHD; lektor kurzů sociálně-emočního učení pro děti s ADHD (Centrum pro rodinu a sociální péči, Brno)',
+    },
+    {
+      title: 'Lektorská činnost',
+      description: 'Lektor kurzů pro odborníky a rodiče (Terapie pod Špilberkem s.r.o.; Podané ruce o.p.s.)',
+    },
+  ]
+
   return (
     <>
       <Head>
@@ -42,50 +73,94 @@ const practice = () => {
           crossOrigin=""
         />
       </Head>
-      <div className="grid xl:grid-cols-3 bg-cover p-10 gap-4 2xl:h-[550px] m-4 bg-motive">
-        <div className="text-white xl:col-span-2">
-          <p>Absolvované vzdělání a kurzy:</p>
-          <ul className="p-4 ml-4 list-disc">
-            <li>Mgr. vzdělání v oboru Psychologie, Filosofická fakulta Univerzity Palackého v Olomouci,</li>
-            <li>Výcvik v psychotraumatologii a EMDR (I. a II. stupeň) - Český institut pro psychotraumatologii a EMDR,</li>
-            <li>
-              Komplexní psychoterapeutický výcvik v somatické a hlubinně orientované psychoterapii - Biosyntéze; Český institut
-              Biosyntézy z.s,
-            </li>
-            <li>Kurz Školní psycholog na ZŠ a SŠ, Filosofická fakulta Univerzity Palackého v Olomouci,</li>
-            <li>Kurz Základní krizová intervence, Remedium Praha o. p. s. a další kurzy.</li>
-          </ul>
-          <p className="pb-4">Praxe a další činnosti:</p>
-          <ul className="p-4 ml-4 list-disc">
-            <li>
-              Psychologické poradenství, krizová intervence a individuální konzultace pro rodiče, učitele a žáky; práce se
-              třídními kolektivy (ZŠ Hudcova, Brno; ZŠ a MŠ Deblín, Brno-venkov),
-            </li>
-            <li>
-              Externí vyučující na Pedagogické fakultě Masarykovy univerzity v Brně – spolupráce na výuce pedagogické psychologie
-              pro budoucí učitele a speciální pedagogy,
-            </li>
-            <li>
-              Individuální a rodinné poradenství pro mladistvé a jejich rodinné příslušníky; lektorování skupinových setkání
-              zaměřených na zvládání agrese u mladistvých (Probační a mediační služba ČR),
-            </li>
-            <li>
-              Poradenství pro učitele žáků s ADHD; metodik a lektor preventivních programů pro třídní kolektivy s dětmi s ADHD;
-              lektor kurzů sociálně-emočního učení pro děti s ADHD (Centrum pro rodinu a sociální péči, Brno),
-            </li>
-            <li>Lektor kurzů pro odborníky a rodiče (Terapie pod Špilberkem s.r.o.; Podané ruce o.p.s.).</li>
-          </ul>
+
+      {/* Page Header */}
+      <div className="bg-gradient-to-br from-primary-50 to-white section">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
+              Má praxe
+            </h1>
+            <p className="text-xl text-gray-600">
+              Profesní vzdělání, zkušenosti a oblasti specializace
+            </p>
+          </div>
         </div>
-        <div className={width && width > 700 ? 'self-center justify-self-center' : 'self-center'}>
-          <Image
-            placeholder="blur"
-            height={400}
-            width={400}
-            layout={width && width > 700 ? 'fixed' : 'responsive'}
-            objectFit="contain"
-            src={ProfileImg}
-            alt="Profilová fotka"
-          />
+      </div>
+
+      {/* Main Content */}
+      <div className="bg-white section">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-3 gap-12 mb-16">
+            {/* Education & Experience */}
+            <div className="lg:col-span-2 space-y-12">
+              {/* Education Section */}
+              <div className="animate-fade-in-up">
+                <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8">
+                  Absolvované vzdělání a kurzy
+                </h2>
+                <div className="space-y-4">
+                  {education.map((item, index) => (
+                    <div key={index} className="card p-6 flex items-start group hover:shadow-medium transition-shadow duration-300">
+                      <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-4 flex-shrink-0 group-hover:scale-150 transition-transform duration-300"></div>
+                      <p className="text-gray-700 leading-relaxed">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Experience Section */}
+              <div className="animate-fade-in-up animation-delay-200">
+                <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8">
+                  Praxe a další činnosti
+                </h2>
+                <div className="space-y-6">
+                  {experience.map((item, index) => (
+                    <div key={index} className="card p-6 hover:shadow-medium transition-all duration-300">
+                      <h3 className="text-xl font-heading font-semibold text-primary-600 mb-3">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Profile Image Sidebar */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-24 animate-fade-in-up animation-delay-400">
+                <div className="card p-6">
+                  <div className="relative mb-6">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-primary-200 to-accent-200 rounded-xl blur-lg opacity-30"></div>
+                    <div className="relative">
+                      <Image
+                        placeholder="blur"
+                        height={400}
+                        width={400}
+                        layout="responsive"
+                        objectFit="cover"
+                        src={ProfileImg}
+                        alt="Mgr. Petr Davídek"
+                        className="rounded-lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
+                      Mgr. Petr Davídek
+                    </h3>
+                    <p className="text-gray-600 mb-4">
+                      Psycholog a terapeut
+                    </p>
+                    <a href="/kontakt" className="btn btn-primary w-full">
+                      Kontaktovat
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

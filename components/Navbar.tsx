@@ -22,44 +22,49 @@ const NavItem: FC<{ isSide?: boolean; activeItem: string; setActiveItem: Functio
   routeName,
   setActiveItem,
 }) => {
-  const color = isSide ? "border-black" : "border-font-green";
+  const isActive = activeItem === name;
 
-  return activeItem !== name ? (
-    <div>
-      <Link href={`/${routeName}`} as={`/${routes[routeName]}`}>
-        <a className="font-bold transition duration-500 hover:scale-120">
-          <span
-            onClick={() => {
-              setActiveItem(name);
-            }}
-            className={`${!isSide ? "hover:text-font-green" : "hover:border-b-2 hover:border-black hover:pb-2"}`}>
-            {name}
-          </span>
-        </a>
-      </Link>
-    </div>
-  ) : (
-    <>
-      {isSide ? (
-        <div className={`pb-2 font-bold border-b-2 w-max ${color}`}>{name}</div>
-      ) : (
-        <div>
-          <div className={`border-b-2 font-bold pb-2 ${color}`}>{name}</div>
-        </div>
-      )}
-    </>
+  return (
+    <Link href={`/${routeName}`} as={`/${routes[routeName]}`}>
+      <a
+        onClick={() => setActiveItem(name)}
+        className={`relative font-semibold transition-all duration-300 group ${
+          isSide ? "text-xl py-2 block" : "text-base"
+        } ${isActive ? (isSide ? "text-gray-900" : "text-primary-600") : isSide ? "text-gray-700 hover:text-gray-900" : "text-gray-700 hover:text-primary-600"}`}>
+        <span className="relative">
+          {name}
+          {!isSide && (
+            <span
+              className={`absolute -bottom-1 left-0 h-0.5 bg-primary-500 transition-all duration-300 ${
+                isActive ? "w-full" : "w-0 group-hover:w-full"
+              }`}
+            />
+          )}
+        </span>
+      </a>
+    </Link>
   );
 };
 
 const Navbar = () => {
   const { width } = useWindowDimensions();
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const toggleSideMenu = () => {
-    isSideMenuOpen ? setIsSideMenuOpen(false) : setIsSideMenuOpen(true);
+    setIsSideMenuOpen(!isSideMenuOpen);
   };
   const [activeItem, setActiveItem] = useState<string>("Úvod");
   const { pathname } = useRouter();
   const router = useNextRouter();
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleEsc = (event: { key: string }) => {
@@ -73,7 +78,15 @@ const Navbar = () => {
   }, [isSideMenuOpen]);
 
   useEffect(() => {
-    toggleSideMenu();
+    if (isSideMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isSideMenuOpen]);
+
+  useEffect(() => {
+    setIsSideMenuOpen(false);
   }, [activeItem]);
 
   useEffect(() => {
@@ -105,45 +118,80 @@ const Navbar = () => {
     if (pathname === "/první-setkání") setActiveItem("První setkání");
     if (pathname === "/má-praxe") setActiveItem("Má praxe");
     if (pathname === "/kontakt") setActiveItem("Kontakt");
-  }, []);
+  }, [pathname]);
 
   return (
-    <nav className="flex w-full pt-10 pb-8 pl-4 md:pb-0 lg:justify-center pr-[2.5rem] 2xl:pr-[2.5rem]">
-      <div className="flex flex-col justify-center px-4 py-2 ml-6 mr-2 align-center">
-        <h1 className="text-center text-md md:text-[2rem] text-font-green font-bold">PSYCHOLOG A TERAPEUT, BRNO</h1>
-        <h2 className="text-md md:text-[1.5rem] font-bold text-center">Mgr. Petr Davídek</h2>
-      </div>
-      <div className="hidden py-4 ml-auto space-x-5 2xl:space-x-10 2xl:pl-20 lg:flex">
-        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Úvod" routeName="" />
-        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" routeName="about" />
-        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="První setkání" routeName="first" />
-        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Má praxe" routeName="practice" />
-        <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" routeName="contact" />
-        <div className="font-bold hidden xl:flex flex-col max-w-[15rem] text-font-green">
-          <span className="text-right">{CITATION}</span>
-          <span className="pt-4 text-right">Albert Peso</span>
+    <nav
+      className={`sticky top-0 z-30 w-full transition-all duration-300 ${
+        scrolled ? "bg-white/95 backdrop-blur-safari shadow-md py-4" : "bg-white py-6"
+      }`}>
+      <div className="container-custom">
+        <div className="flex items-center justify-between">
+          {/* Logo/Title */}
+          <Link href="/">
+            <a className="flex flex-col justify-center group">
+              <h1 className="text-lg md:text-2xl lg:text-3xl font-heading font-bold text-primary-600 transition-colors duration-300 group-hover:text-primary-700">
+                PSYCHOLOG A TERAPEUT, BRNO
+              </h1>
+              <h2 className="text-sm md:text-lg lg:text-xl font-semibold text-gray-700">Mgr. Petr Davídek</h2>
+            </a>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-8">
+            <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Úvod" routeName="" />
+            <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" routeName="about" />
+            <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="První setkání" routeName="first" />
+            <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Má praxe" routeName="practice" />
+            <NavItem activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" routeName="contact" />
+          </div>
+
+          {/* Quote - Desktop only */}
+          {width && width >= 1536 && (
+            <div className="hidden 2xl:flex flex-col max-w-xs text-primary-700 italic text-sm">
+              <span className="text-right">{CITATION}</span>
+              <span className="pt-2 text-right font-semibold not-italic">— Albert Peso</span>
+            </div>
+          )}
+
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden">
+            <HamburgerIcon isOpen={isSideMenuOpen} handleClick={toggleSideMenu} />
+          </div>
         </div>
       </div>
-      <div className="w-8 h-8 ml-auto mr-2 lg:hidden">
-        <HamburgerIcon isOpen={isSideMenuOpen} handleClick={toggleSideMenu} />
-      </div>
 
-      {isSideMenuOpen ? <SideMenu activeItem={activeItem} setActiveItem={setActiveItem} /> : ""}
+      {/* Mobile Side Menu */}
+      {isSideMenuOpen && <SideMenu activeItem={activeItem} setActiveItem={setActiveItem} />}
     </nav>
   );
 };
 
 const SideMenu: FC<{ activeItem: string; setActiveItem: Function }> = ({ activeItem, setActiveItem }) => {
   return (
-    <div className="fixed top-0 left-0 z-20 w-1/2 h-screen p-4 bg-font-green/95 sm:w-1/4 lg:hidden">
-      <ul className="flex flex-col text-[1.5rem] gap-4">
-        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Úvod" routeName="" />
-        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" routeName="about" />
-        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="První setkání" routeName="first" />
-        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Má praxe" routeName="practice" />
-        <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" routeName="contact" />
-      </ul>
-    </div>
+    <>
+      {/* Backdrop */}
+      <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 animate-fade-in lg:hidden" />
+
+      {/* Side Panel */}
+      <div className="fixed top-0 right-0 h-screen w-80 max-w-[85vw] bg-white shadow-2xl z-50 animate-slide-in-right lg:hidden">
+        <div className="flex flex-col h-full p-8">
+          <div className="flex flex-col space-y-6 mt-20">
+            <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Úvod" routeName="" />
+            <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="O mně" routeName="about" />
+            <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="První setkání" routeName="first" />
+            <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Má praxe" routeName="practice" />
+            <NavItem isSide activeItem={activeItem} setActiveItem={setActiveItem} name="Kontakt" routeName="contact" />
+          </div>
+
+          {/* Quote in mobile menu */}
+          <div className="mt-auto mb-8 text-primary-700 italic text-sm border-t border-gray-200 pt-6">
+            <p className="text-right">{CITATION}</p>
+            <p className="pt-2 text-right font-semibold not-italic">— Albert Peso</p>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
@@ -155,20 +203,15 @@ type HamburgerIconProps = {
 };
 
 const HamburgerIcon = ({ isOpen, handleClick }: HamburgerIconProps) => {
-  const genericHamburgerLine = `h-1 w-6 my-1  bg-black transition ease transform duration-300`;
+  const genericHamburgerLine = `h-0.5 w-6 my-1 bg-gray-700 transition-all duration-300 ease-in-out`;
   return (
-    <button className="flex flex-col items-center justify-center w-12 h-12 group" onClick={handleClick}>
-      <div
-        className={`${genericHamburgerLine} ${
-          isOpen ? "rotate-45 translate-y-3 opacity-50 group-hover:opacity-100" : "opacity-50 group-hover:opacity-100"
-        }`}
-      />
-      <div className={`${genericHamburgerLine} ${isOpen ? "opacity-0" : "opacity-50 group-hover:opacity-100"}`} />
-      <div
-        className={`${genericHamburgerLine} ${
-          isOpen ? "-rotate-45 -translate-y-3 opacity-50 group-hover:opacity-100" : "opacity-50 group-hover:opacity-100"
-        }`}
-      />
+    <button
+      className="flex flex-col items-center justify-center w-12 h-12 group focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-lg"
+      onClick={handleClick}
+      aria-label="Toggle menu">
+      <div className={`${genericHamburgerLine} ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
+      <div className={`${genericHamburgerLine} ${isOpen ? "opacity-0" : ""}`} />
+      <div className={`${genericHamburgerLine} ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
     </button>
   );
 };
