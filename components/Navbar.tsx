@@ -57,14 +57,27 @@ const Navbar = () => {
   const { pathname } = useRouter();
   const router = useNextRouter();
 
-  // Handle scroll effect
+  // Handle scroll effect with threshold and debounce
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          // Higher threshold (50px) and hysteresis to prevent shaking
+          if (scrollY > 50 && !scrolled) {
+            setScrolled(true);
+          } else if (scrollY <= 30 && scrolled) {
+            setScrolled(false);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [scrolled]);
 
   useEffect(() => {
     const handleEsc = (event: { key: string }) => {
