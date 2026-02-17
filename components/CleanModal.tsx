@@ -5,8 +5,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { sendEmail } from "../utils/sendEmail";
+import { ModalProps } from "../types/components";
 
-export default function CleanModal({ showModal, setShowModal }: any) {
+export default function CleanModal({ showModal, setShowModal }: ModalProps) {
   const [message, setMessage] = useState("");
 
   const schema = yup.object().shape({

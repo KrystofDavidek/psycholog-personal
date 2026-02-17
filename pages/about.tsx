@@ -1,67 +1,30 @@
-import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import YouTube from 'react-youtube'
 import useWindowDimensions from '../hooks/useWindowDimension'
+import SEO from '../components/SEO'
+import PageHeader from '../components/PageHeader'
+import IconPlaceholder from '../components/IconPlaceholder'
+import { SITE_CONFIG, EXTERNAL_LINKS } from '../constants/site'
 
-const about = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export default function About() {
   const { width } = useWindowDimensions()
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [isLoaded, setLoaded] = useState(false)
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     if (width) return setLoaded(true)
   }, [width])
 
   return (
     <>
-      <Head>
-        <title>Psycholog a terapeut, Brno - Mgr. Petr Davídek, terapie pro dětí a dospělé</title>
-        <meta
-          name="description"
-          content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
-        />
-        <link rel="canonical" href="https://www.psycholog-terapeut-brno.cz/o-mně" />
-        <meta property="og:title" content="Psycholog a terapeut, Brno - Mgr. Petr Davídek, terapie pro dětí a dospělé" />
-        <meta
-          property="og:description"
-          content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
-        />
-        <meta property="og:image" content="https://www.psycholog-terapeut-brno.cz/static/images/profilovka-orez.png" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.psycholog-terapeut-brno.cz/o-mně" />
-        <meta property="og:site_name" content="mobil kontakty" />
-        <meta name="google-site-verification" content="UvZqrbMejlIe7mEjOSxw4U0mtpgAkh_6HO9UIFEFHII" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Psycholog a terapeut, Brno - Mgr. Petr Davídek, terapie pro dětí a dospělé" />
-        <meta
-          name="twitter:description"
-          content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
-        />
-        <meta name="twitter:image" content="https://www.psycholog-terapeut-brno.cz/static/images/profilovka-orez.png" />
-        <link
-          rel="preload"
-          as="font"
-          type="font/woff2"
-          href="https://static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/5cee8d6e-89ad-4d8c-a0ac-584d316b15ae.woff2"
-          crossOrigin=""
-        />
-      </Head>
+      <SEO
+        title="O mně"
+        canonical={`${SITE_CONFIG.url}/o-mně`}
+      />
 
-      {/* Page Header */}
-      <div className="bg-gradient-to-br from-primary-50 to-white section">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
-              O mně
-            </h1>
-            <p className="text-xl text-gray-600">
-              Pojďte se se mnou blíže seznámit a dozvědět se více o mé práci a přístupech, které používám
-            </p>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        title="O mně"
+        subtitle="Pojďte se se mnou blíže seznámit a dozvědět se více o mé práci a přístupech, které používám"
+      />
 
       {/* Main Content */}
       <div className="bg-white section">
@@ -83,9 +46,7 @@ const about = () => {
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
             {/* Biosynthesis */}
             <div className="card p-8 animate-fade-in-up">
-              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
-                <div className="w-6 h-6 bg-primary-500 rounded"></div>
-              </div>
+              <IconPlaceholder variant="primary" className="mb-6" />
               <h2 className="text-2xl font-heading font-semibold text-gray-900 mb-4">
                 Biosyntetická psychoterapie
               </h2>
@@ -99,7 +60,7 @@ const about = () => {
                 například zda mají napjaté svaly, obtížně se jim dýchá nebo je něco bolí.
               </p>
               <a
-                href="https://www.biosynteza.cz/"
+                href={EXTERNAL_LINKS.biosynthesis}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold transition-colors">
@@ -109,9 +70,7 @@ const about = () => {
 
             {/* EMDR */}
             <div className="card p-8 animate-fade-in-up animation-delay-200">
-              <div className="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mb-6">
-                <div className="w-6 h-6 bg-accent-500 rounded"></div>
-              </div>
+              <IconPlaceholder variant="accent" className="mb-6" />
               <h2 className="text-2xl font-heading font-semibold text-gray-900 mb-4">
                 Metoda EMDR
               </h2>
@@ -123,7 +82,7 @@ const about = () => {
                 S dětmi využívám prvky terapie hrou, která je pro ně přirozenou a bezpečnou formou jejich rozvoje.
               </p>
               <a
-                href="https://www.emdr.cz"
+                href={EXTERNAL_LINKS.emdr}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-accent-600 hover:text-accent-700 font-semibold transition-colors">
@@ -171,5 +130,3 @@ const about = () => {
     </>
   )
 }
-
-export default about

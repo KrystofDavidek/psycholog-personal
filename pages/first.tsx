@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react'
@@ -6,7 +5,7 @@ import img1 from '../assets/pracovna1.png'
 import img2 from '../assets/pracovna2.png'
 import useWindowDimensions from '../hooks/useWindowDimension'
 
-const first = () => {
+export default function First() {
   const { width } = useWindowDimensions()
 
   return (
@@ -177,5 +176,3 @@ const first = () => {
     </div>
   )
 }
-
-export default first

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
@@ -6,12 +5,9 @@ import Map from "../assets/mapa-velka.png";
 import Outside from "../assets/venek.jpg";
 import CleanModal from "../components/CleanModal";
 import CleanModalMini from "../components/CleanModalMini";
-import Modal from "../components/Modal";
-import ModalMini from "../components/ModalMini";
 import useWindowDimensions from "../hooks/useWindowDimension";
 
-const contact = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export default function Contact() {
   const { width } = useWindowDimensions();
   const [showModal, setShowModal] = useState(false);
 
@@ -174,6 +170,4 @@ const contact = () => {
       )}
     </div>
   );
-};
-
-export default contact;
+}

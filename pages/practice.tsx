@@ -3,8 +3,7 @@ import Image from 'next/image'
 import ProfileImg from '../assets/profilovka-orez.png'
 import useWindowDimensions from '../hooks/useWindowDimension'
 
-const practice = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export default function Practice() {
   const { width } = useWindowDimensions()
 
   const education = [
@@ -166,5 +165,3 @@ const practice = () => {
     </>
   )
 }
-
-export default practice
