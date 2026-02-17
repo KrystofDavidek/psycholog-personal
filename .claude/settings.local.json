@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(git stash:*)",
+      "Bash(timeout 20 npm run dev:*)",
+      "Bash(yarn install:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx next lint:*)",
+      "Bash(npx next build:*)",
+      "Bash(npx next dev)",
+      "Bash(find:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Skill(keybindings-help)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__query-docs",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm run build:*)",
+      "Bash(curl:*)",
+      "Bash(git rm:*)",
+      "Bash(pnpm remove:*)"
+    ]
+  }
+}

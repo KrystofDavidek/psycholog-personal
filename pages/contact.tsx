@@ -3,12 +3,9 @@ import Image from "next/image";
 import { useState } from "react";
 import Map from "../assets/mapa-velka.png";
 import Outside from "../assets/venek.jpg";
-import CleanModal from "../components/CleanModal";
-import CleanModalMini from "../components/CleanModalMini";
-import useWindowDimensions from "../hooks/useWindowDimension";
+import ContactModal from "../components/ContactModal";
 
 export default function Contact() {
-  const { width } = useWindowDimensions();
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -113,14 +110,12 @@ export default function Contact() {
               </div>
 
               {/* CTA Button */}
-              {width && (
-                <button
-                  type="button"
-                  onClick={() => setShowModal(true)}
-                  className="btn btn-primary w-full text-lg">
-                  Kontakt a domluva setkání
-                </button>
-              )}
+              <button
+                type="button"
+                onClick={() => setShowModal(true)}
+                className="btn btn-primary w-full text-lg">
+                Kontakt a domluva setkání
+              </button>
             </div>
 
             {/* Map */}
@@ -163,11 +158,7 @@ export default function Contact() {
       </div>
 
       {/* Modal */}
-      {width && width > 1282 ? (
-        <CleanModal showModal={showModal} setShowModal={setShowModal} />
-      ) : (
-        <CleanModalMini showModal={showModal} setShowModal={setShowModal} />
-      )}
+      <ContactModal showModal={showModal} setShowModal={setShowModal} />
     </div>
   );
 }
