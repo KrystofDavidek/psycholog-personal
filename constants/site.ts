@@ -3,10 +3,10 @@ export const SITE_CONFIG = {
   name: 'Psycholog a terapeut, Brno',
   title: 'Mgr. Petr Davídek',
   fullTitle: 'Psycholog a terapeut, Brno - Mgr. Petr Davídek',
-  description: 'Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně.',
+  description: 'Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojenosti ve vztazích v Brně.',
   url: 'https://www.psycholog-terapeut-brno.cz',
   ogImage: 'https://www.psycholog-terapeut-brno.cz/static/images/profilovka-orez.png',
-  ogSiteName: 'mobil kontakty',
+  ogSiteName: 'Psycholog a terapeut, Brno - Mgr. Petr Davídek',
   googleVerification: 'UvZqrbMejlIe7mEjOSxw4U0mtpgAkh_6HO9UIFEFHII',
 } as const;
 

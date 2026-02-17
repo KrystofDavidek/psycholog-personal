@@ -1,48 +1,16 @@
-import Head from "next/head";
-import Image from "next/image";
-import { useState } from "react";
-import Map from "../assets/mapa-velka.png";
-import Outside from "../assets/venek.jpg";
-import ContactModal from "../components/ContactModal";
+'use client'
 
-export default function Contact() {
-  const [showModal, setShowModal] = useState(false);
+import Image from 'next/image'
+import { useState } from 'react'
+import Map from '@/assets/mapa-velka.png'
+import Outside from '@/assets/venek.jpg'
+import ContactModal from '@/components/ContactModal'
+
+export default function ContactPageContent() {
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <div>
-      <Head>
-        <title> Psycholog a terapeut, Brno: terapie pro děti a dospělé - Mgr. Petr Davídek</title>
-        <meta
-          name="description"
-          content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
-        />
-        <link rel="canonical" href="https://www.psycholog-terapeut-brno.cz/kontakt" />
-        <meta property="og:title" content=" Psycholog a terapeut, Brno: terapie pro děti a dospělé - Mgr. Petr Davídek" />
-        <meta
-          property="og:description"
-          content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
-        />
-        <meta property="og:image" content="https://www.psycholog-terapeut-brno.cz/static/images/profilovka-orez.png" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.psycholog-terapeut-brno.cz/kontakt" />
-        <meta property="og:site_name" content="mobil kontakty" />
-        <meta name="google-site-verification" content="UvZqrbMejlIe7mEjOSxw4U0mtpgAkh_6HO9UIFEFHII" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content=" Psycholog a terapeut, Brno: terapie pro děti a dospělé - Mgr. Petr Davídek" />
-        <meta
-          name="twitter:description"
-          content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
-        />
-        <meta name="twitter:image" content="https://www.psycholog-terapeut-brno.cz/static/images/profilovka-orez.png" />
-        <link
-          rel="preload"
-          as="font"
-          type="font/woff2"
-          href="https://static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/5cee8d6e-89ad-4d8c-a0ac-584d316b15ae.woff2"
-          crossOrigin=""
-        />
-      </Head>
-
       {/* Page Header */}
       <div className="bg-gradient-to-br from-primary-50 to-white section">
         <div className="container-custom">
@@ -126,9 +94,8 @@ export default function Contact() {
                     src={Map}
                     placeholder="blur"
                     alt="Mapa - Terapie pod Špilberkem, Brno"
-                    objectPosition="center"
-                    objectFit="cover"
-                    layout="fill"
+                    fill
+                    style={{ objectFit: 'cover', objectPosition: 'center' }}
                   />
                 </div>
               </div>
@@ -146,9 +113,8 @@ export default function Contact() {
                   src={Outside}
                   placeholder="blur"
                   alt="Venkovní pohled na budovu"
-                  objectPosition="center"
-                  objectFit="cover"
-                  layout="fill"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
                   className="transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -160,5 +126,5 @@ export default function Contact() {
       {/* Modal */}
       <ContactModal showModal={showModal} setShowModal={setShowModal} />
     </div>
-  );
+  )
 }

@@ -1,55 +1,28 @@
-import Head from 'next/head'
+import type { Metadata } from 'next'
 import Image from 'next/image'
-import ProfileImg from '../assets/profilovka-orez.png'
-import useWindowDimensions from '../hooks/useWindowDimension'
+import Link from 'next/link'
+import ProfileImg from '@/assets/profilovka-orez.png'
+
+export const metadata: Metadata = {
+  description: 'Psycholog a terapeut v Brně. Mgr. Petr Davídek nabízí psychoterapii pro děti a dospělé – ADHD, úzkosti, psychosomatické obtíže, trauma a vztahové problémy.',
+  alternates: { canonical: 'https://www.psycholog-terapeut-brno.cz' },
+  openGraph: {
+    url: 'https://www.psycholog-terapeut-brno.cz',
+  },
+}
+
+const services = [
+  { title: 'ADHD a hyperaktivita', description: 'Práce s projevy nepozornosti, hyperaktivity a impulzivity v chování' },
+  { title: 'Vztahové obtíže', description: 'Konflikty a nespokojenost ve vztazích s partnery, rodinou či přáteli' },
+  { title: 'Nízké sebevědomí', description: 'Nedostatek důvěry ve vlastní schopnosti a možnost změny' },
+  { title: 'Trauma', description: 'Omezení v životě spojená s traumatickými zážitky a náročnými situacemi' },
+  { title: 'Psychosomatické potíže', description: 'Bolesti břicha, hlavy a další tělesné obtíže spojené s psychikou' },
+  { title: 'Zvládání emocí', description: 'Problémy s ovládáním vzteku, úzkosti a dalších silných emocí' },
+]
 
 export default function Home() {
-  const { width } = useWindowDimensions()
-
-  const services = [
-    { title: 'ADHD a hyperaktivita', description: 'Práce s projevy nepozornosti, hyperaktivity a impulzivity v chování' },
-    { title: 'Vztahové obtíže', description: 'Konflikty a nespokojenost ve vztazích s partnery, rodinou či přáteli' },
-    { title: 'Nízké sebevědomí', description: 'Nedostatek důvěry ve vlastní schopnosti a možnost změny' },
-    { title: 'Trauma', description: 'Omezení v životě spojená s traumatickými zážitky a náročnými situacemi' },
-    { title: 'Psychosomatické potíže', description: 'Bolesti břicha, hlavy a další tělesné obtíže spojené s psychikou' },
-    { title: 'Zvládání emocí', description: 'Problémy s ovládáním vzteku, úzkosti a dalších silných emocí' },
-  ]
-
   return (
     <div>
-      <Head>
-        <title>Psycholog a terapeut, Brno - Mgr. Petr Davídek, terapie pro dětí a dospělé</title>
-        <meta
-          name="description"
-          content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně. "
-        />
-        <link rel="canonical" href="https://www.psycholog-terapeut-brno.cz" />
-        <meta property="og:title" content="Psycholog a terapeut, Brno - Mgr. Petr Davídek, terapie pro dětí a dospělé" />
-        <meta
-          property="og:description"
-          content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
-        />
-        <meta property="og:image" content="https://www.psycholog-terapeut-brno.cz/static/images/profilovka-orez.png" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.psycholog-terapeut-brno.cz" />
-        <meta property="og:site_name" content="mobil kontakty" />
-        <meta name="google-site-verification" content="UvZqrbMejlIe7mEjOSxw4U0mtpgAkh_6HO9UIFEFHII" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Psycholog a terapeut, Brno - Mgr. Petr Davídek, terapie pro dětí a dospělé" />
-        <meta
-          name="twitter:description"
-          content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
-        />
-        <meta name="twitter:image" content="https://www.psycholog-terapeut-brno.cz/static/images/profilovka-orez.png" />
-        <link
-          rel="preload"
-          as="font"
-          type="font/woff2"
-          href="https://static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/5cee8d6e-89ad-4d8c-a0ac-584d316b15ae.woff2"
-          crossOrigin=""
-        />
-      </Head>
-
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 overflow-hidden">
         <div className="container-custom section">
@@ -67,12 +40,12 @@ export default function Home() {
                 Pomáhám dospělým, dětem a dospívajícím najít cestu k lepšímu životu.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="/kontakt" className="btn btn-primary">
+                <Link href="/kontakt" className="btn btn-primary">
                   Domluvit schůzku
-                </a>
-                <a href="/o-mně" className="btn btn-secondary">
+                </Link>
+                <Link href="/o-mně" className="btn btn-secondary">
                   Zjistit více o mně
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -85,11 +58,10 @@ export default function Home() {
                     placeholder="blur"
                     height={500}
                     width={500}
-                    layout="responsive"
-                    objectFit="cover"
                     src={ProfileImg}
                     alt="Mgr. Petr Davídek - Psycholog a terapeut"
                     className="rounded-xl"
+                    style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
                   />
                 </div>
               </div>
@@ -138,12 +110,12 @@ export default function Home() {
             nebo hledáte cestu ke změně - společně najdeme řešení.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/kontakt" className="btn bg-white text-primary-700 hover:bg-primary-50 shadow-lg">
+            <Link href="/kontakt" className="btn bg-white text-primary-700 hover:bg-primary-50 shadow-lg">
               Kontaktujte mě
-            </a>
-            <a href="/první-setkání" className="btn border-2 border-white text-white hover:bg-white/10">
+            </Link>
+            <Link href="/první-setkání" className="btn border-2 border-white text-white hover:bg-white/10">
               Jak probíhá první setkání
-            </a>
+            </Link>
           </div>
         </div>
       </div>

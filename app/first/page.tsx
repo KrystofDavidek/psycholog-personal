@@ -1,49 +1,21 @@
-import Head from 'next/head'
+import type { Metadata } from 'next'
 import Image from 'next/image'
-import React from 'react'
-import img1 from '../assets/pracovna1.png'
-import img2 from '../assets/pracovna2.png'
-import useWindowDimensions from '../hooks/useWindowDimension'
+import Link from 'next/link'
+import img1 from '@/assets/pracovna1.png'
+import img2 from '@/assets/pracovna2.png'
+
+export const metadata: Metadata = {
+  title: 'První setkání',
+  description: 'Jak probíhá první setkání s psychologem. Ceník služeb – 1 400 Kč / 50 min. Možnost příspěvku od VZP. Objednání telefonicky nebo e-mailem.',
+  alternates: { canonical: 'https://www.psycholog-terapeut-brno.cz/první-setkání' },
+  openGraph: {
+    url: 'https://www.psycholog-terapeut-brno.cz/první-setkání',
+  },
+}
 
 export default function First() {
-  const { width } = useWindowDimensions()
-
   return (
     <div>
-      <Head>
-        <title>První setkání | Psycholog a terapeut - Mgr. Petr Davídek</title>
-        <meta
-          name="description"
-          content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
-        />
-        <link rel="canonical" href="https://www.psycholog-terapeut-brno.cz/první-setkání" />
-        <meta property="og:title" content="První setkání | Psycholog a terapeut - Mgr. Petr Davídek" />
-        <meta
-          property="og:description"
-          content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
-        />
-        <meta property="og:image" content="https://www.psycholog-terapeut-brno.cz/static/images/profilovka-orez.png" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.psycholog-terapeut-brno.cz/první-setkání" />
-        <meta property="og:site_name" content="mobil kontakty" />
-
-        <meta name="google-site-verification" content="UvZqrbMejlIe7mEjOSxw4U0mtpgAkh_6HO9UIFEFHII" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="První setkání | Psycholog a terapeut - Mgr. Petr Davídek" />
-        <meta
-          name="twitter:description"
-          content="Terapie pro děti a dospělé s psychosomatickými obtížemi, ADHD, úzkostmi, konflikty a nespokojensoti ve vztazích v Brně."
-        />
-        <meta name="twitter:image" content="https://www.psycholog-terapeut-brno.cz/static/images/profilovka-orez.png" />
-        <link
-          rel="preload"
-          as="font"
-          type="font/woff2"
-          href="https://static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/5cee8d6e-89ad-4d8c-a0ac-584d316b15ae.woff2"
-          crossOrigin=""
-        />
-      </Head>
-
       {/* Page Header */}
       <div className="bg-gradient-to-br from-primary-50 to-white section">
         <div className="container-custom">
@@ -116,7 +88,7 @@ export default function First() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-accent-600 hover:text-accent-700 font-semibold transition-colors">
-                Podrobné informace o příspěvku →
+                Podrobné informace o příspěvku &rarr;
               </a>
             </div>
           </div>
@@ -144,8 +116,8 @@ export default function First() {
                     placeholder="blur"
                     src={img1}
                     alt="Pracovna 1"
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    style={{ objectFit: 'cover' }}
                     className="transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
@@ -156,8 +128,8 @@ export default function First() {
                     placeholder="blur"
                     src={img2}
                     alt="Pracovna 2"
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    style={{ objectFit: 'cover' }}
                     className="transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
@@ -167,9 +139,9 @@ export default function First() {
 
           {/* CTA */}
           <div className="mt-16 text-center">
-            <a href="/kontakt" className="btn btn-primary text-lg">
+            <Link href="/kontakt" className="btn btn-primary text-lg">
               Domluvit první setkání
-            </a>
+            </Link>
           </div>
         </div>
       </div>

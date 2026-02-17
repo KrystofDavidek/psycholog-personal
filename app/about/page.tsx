@@ -1,26 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import YouTube from 'react-youtube'
-import useWindowDimensions from '../hooks/useWindowDimension'
-import SEO from '../components/SEO'
-import PageHeader from '../components/PageHeader'
-import IconPlaceholder from '../components/IconPlaceholder'
-import { SITE_CONFIG, EXTERNAL_LINKS } from '../constants/site'
+import type { Metadata } from 'next'
+import PageHeader from '@/components/PageHeader'
+import IconPlaceholder from '@/components/IconPlaceholder'
+import YouTubeEmbed from '@/components/YouTubeEmbed'
+import { SITE_CONFIG, EXTERNAL_LINKS } from '@/constants/site'
+
+export const metadata: Metadata = {
+  title: 'O mně',
+  description: 'Mgr. Petr Davídek – psycholog a terapeut v Brně. Biosyntetická psychoterapie, EMDR, práce s dětmi i dospělými. Člen České asociace pro psychoterapii.',
+  alternates: { canonical: `${SITE_CONFIG.url}/o-mně` },
+  openGraph: {
+    url: `${SITE_CONFIG.url}/o-mně`,
+  },
+}
 
 export default function About() {
-  const { width } = useWindowDimensions()
-  const [isLoaded, setLoaded] = useState(false)
-
-  useEffect(() => {
-    if (width) return setLoaded(true)
-  }, [width])
-
   return (
     <>
-      <SEO
-        title="O mně"
-        canonical={`${SITE_CONFIG.url}/o-mně`}
-      />
-
       <PageHeader
         title="O mně"
         subtitle="Pojďte se se mnou blíže seznámit a dozvědět se více o mé práci a přístupech, které používám"
@@ -64,7 +59,7 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold transition-colors">
-                Více o biosyntetické psychoterapii →
+                Více o biosyntetické psychoterapii &rarr;
               </a>
             </div>
 
@@ -86,36 +81,22 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-accent-600 hover:text-accent-700 font-semibold transition-colors">
-                Více o EMDR →
+                Více o EMDR &rarr;
               </a>
             </div>
           </div>
 
           {/* Video Section */}
-          {isLoaded && (
-            <div className="card p-8 animate-fade-in-up animation-delay-400">
-              <h2 className="text-2xl font-heading font-semibold text-gray-900 mb-6 text-center">
-                Video o biosyntetické psychoterapii
-              </h2>
-              <div className="flex justify-center">
-                <div className="w-full max-w-3xl">
-                  <div className="relative pb-[56.25%] h-0">
-                    <YouTube
-                      opts={{
-                        width: '100%',
-                        height: '100%',
-                        playerVars: {
-                          modestbranding: 1,
-                        },
-                      }}
-                      videoId="7lmWOmyPRqA"
-                      className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden"
-                    />
-                  </div>
-                </div>
+          <div className="card p-8 animate-fade-in-up animation-delay-400">
+            <h2 className="text-2xl font-heading font-semibold text-gray-900 mb-6 text-center">
+              Video o biosyntetické psychoterapii
+            </h2>
+            <div className="flex justify-center">
+              <div className="w-full max-w-3xl">
+                <YouTubeEmbed videoId="7lmWOmyPRqA" />
               </div>
             </div>
-          )}
+          </div>
 
           {/* Membership Badge */}
           <div className="mt-12 text-center">
