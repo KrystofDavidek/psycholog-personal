@@ -20,7 +20,9 @@
       "Bash(pnpm run build:*)",
       "Bash(curl:*)",
       "Bash(git rm:*)",
-      "Bash(pnpm remove:*)"
+      "Bash(pnpm remove:*)",
+      "Bash(pnpm build:*)",
+      "Bash(git restore:*)"
     ]
   }
 }
