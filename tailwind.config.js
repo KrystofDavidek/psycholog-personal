@@ -80,7 +80,7 @@ module.exports = {
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in-out',
-        'fade-in-up': 'fadeInUp 0.6s ease-out',
+        'fade-in-up': 'fadeInUp 0.6s ease-out backwards',
         'fade-in-down': 'fadeInDown 0.6s ease-out',
         'slide-in-right': 'slideInRight 0.4s ease-out',
         'slide-in-left': 'slideInLeft 0.4s ease-out',

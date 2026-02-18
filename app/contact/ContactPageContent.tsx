@@ -12,7 +12,7 @@ export default function ContactPageContent() {
   return (
     <div>
       {/* Page Header */}
-      <div className="bg-gradient-to-br from-primary-50 to-white section">
+      <div className="bg-gradient-to-br from-primary-50 to-white pt-12 pb-4 md:pt-16 md:pb-6">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
