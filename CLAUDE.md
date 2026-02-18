@@ -40,7 +40,9 @@ These mappings are defined in `next.config.ts` and mirrored in the `routes` obje
 
 ### Styling
 
-- Custom Tailwind color: `font-green` (#7D990C) - used throughout for brand consistency
+- Custom Tailwind color: `primary` (#7D990C) - brand green used throughout for buttons, links, and accents
+- Fonts: Inter (body) and Poppins (headings) loaded via `next/font/google` in `app/layout.tsx`, exposed as CSS variables `--font-inter` and `--font-poppins`, and referenced in `tailwind.config.js` as `font-sans` and `font-heading`
+- Animations: `animate-fade-in-up` uses `animation-fill-mode: backwards` — elements with delays start at `opacity: 0` to prevent a flash before the animation runs. Staggered delays use inline `style={{ animationDelay }}`.
 - Responsive breakpoints follow Tailwind defaults
 - Global styles in `app/globals.css`
 
@@ -71,3 +73,5 @@ These mappings are defined in `next.config.ts` and mirrored in the `routes` obje
 - **Environment variables**: The project uses `.env` for sensitive data (email credentials, GA tracking ID). Never commit this file.
 - **Czech language**: UI text and content are in Czech. Route names in URLs are Czech, but file/route names in code are English.
 - **Assets**: Static assets in `public/static/` folder
+- **Images**: Use `fetchPriority="high"` and `loading="eager"` on above-fold `<Image>` components (not the deprecated `priority` prop). Below-fold images use the default lazy loading.
+- **Page headers**: Inner pages use `pt-12 pb-4 md:pt-16 md:pb-6` (not the full `.section` class) to avoid excessive whitespace between the title and the first content section.
