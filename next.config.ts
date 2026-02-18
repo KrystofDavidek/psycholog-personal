@@ -1,9 +1,7 @@
-module.exports = {
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
   reactStrictMode: true,
-  env: {
-    BASE_URL: process.env.BASE_URL,
-  },
-  productionBrowserSourceMaps: true,
   async rewrites() {
     return [
       {
@@ -22,6 +20,8 @@ module.exports = {
         source: "/kontakt",
         destination: "/contact",
       },
-    ];
+    ]
   },
-};
+}
+
+export default nextConfig

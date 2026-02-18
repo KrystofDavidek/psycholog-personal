@@ -33,3 +33,9 @@ yarn-error.log*
 # vercel
 .vercel
 .env
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
