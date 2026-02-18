@@ -6,7 +6,7 @@ import img2 from '@/assets/pracovna2.png'
 
 export const metadata: Metadata = {
   title: 'První setkání',
-  description: 'Jak probíhá první setkání s psychologem. Ceník služeb – 1 400 Kč / 50 min. Možnost příspěvku od VZP. Objednání telefonicky nebo e-mailem.',
+  description: 'Jak probíhá první setkání s psychologem. Ceník služeb – 1 400 Kč / 50 min. Možnost příspěvku od vybraných zdravotních pojišťoven. Objednání telefonicky nebo e-mailem.',
   alternates: { canonical: 'https://www.psycholog-terapeut-brno.cz/první-setkání' },
   openGraph: {
     url: 'https://www.psycholog-terapeut-brno.cz/první-setkání',
@@ -68,27 +68,27 @@ export default function First() {
               </div>
             </div>
 
-            {/* VZP Info */}
+            {/* Insurance Info */}
             <div className="card p-8 bg-gradient-to-br from-accent-50 to-white animate-fade-in-up animation-delay-200">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mr-4">
                   <div className="w-6 h-6 bg-accent-500 rounded"></div>
                 </div>
                 <h2 className="text-2xl font-heading font-semibold text-gray-900">
-                  Příspěvek od VZP
+                  Příspěvek od pojišťoven
                 </h2>
               </div>
 
               <p className="text-gray-700 leading-relaxed mb-4">
-                Na mé služby je možné čerpat finanční příspěvek od Všeobecné zdravotní pojišťovny (VZP).
+                Na mé služby je možné čerpat finanční příspěvek od vybraných zdravotních pojišťoven.
               </p>
 
               <a
-                href="https://dusevnizdravi.vzp.cz/informace-o-prispevku/"
+                href="https://czap.cz/spoluprace-zp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-accent-600 hover:text-accent-700 font-semibold transition-colors">
-                Podrobné informace o příspěvku &rarr;
+                Podrobné informace o příspěvku a podmínkách jeho čerpání naleznete zde &rarr;
               </a>
             </div>
           </div>

@@ -11,13 +11,15 @@ export const metadata: Metadata = {
   },
 }
 
-const services = [
-  { title: 'ADHD a hyperaktivita', description: 'Práce s projevy nepozornosti, hyperaktivity a impulzivity v chování' },
-  { title: 'Vztahové obtíže', description: 'Konflikty a nespokojenost ve vztazích s partnery, rodinou či přáteli' },
-  { title: 'Nízké sebevědomí', description: 'Nedostatek důvěry ve vlastní schopnosti a možnost změny' },
-  { title: 'Trauma', description: 'Omezení v životě spojená s traumatickými zážitky a náročnými situacemi' },
-  { title: 'Psychosomatické potíže', description: 'Bolesti břicha, hlavy a další tělesné obtíže spojené s psychikou' },
-  { title: 'Zvládání emocí', description: 'Problémy s ovládáním vzteku, úzkosti a dalších silných emocí' },
+const specializace = [
+  'ADHD a projevech nepozornosti, hyperaktivity a impulzivity v chování,',
+  'obtížích ve vztazích,',
+  'nízkém sebevědomí, nedostatku důvěry ve vlastní schopnosti a možnost změny,',
+  'omezeních v životě spojených s traumatickými zážitky a na zvládání náročných situací,',
+  'psychosomatických obtížích (např. bolesti břicha a hlavy při odchodu do školy či práce),',
+  'problémech ve zvládání vzteku,',
+  'úzkostech a obavách,',
+  'častých změnách nálad, přetrvávajícím smutku a negativních myšlenkách.',
 ]
 
 export default function Home() {
@@ -73,28 +75,35 @@ export default function Home() {
       {/* Services Section */}
       <div className="bg-white section">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
-              S čím Vám mohu pomoci
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Specializuji se na práci s dospělými, dětmi a dospívajícími v následujících oblastech
-            </p>
-          </div>
+          <div className="max-w-3xl mx-auto space-y-8">
+            <div className="card p-8 md:p-10 animate-fade-in-up">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+                S čím Vám mohu pomoci
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                Jmenuji se <span className="font-semibold text-primary-600">Petr Davídek</span> a působím jako psycholog a terapeut v Brně.
+                S dospělými, dětmi a dospívajícími spolupracuji např. na:
+              </p>
+              <ul className="space-y-3">
+                {specializace.map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="w-2 h-2 bg-primary-500 rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
+                    <span className="text-gray-700 leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="card p-6 hover:scale-105 transition-transform duration-300 animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <div className="w-6 h-6 bg-primary-500 rounded"></div>
-                </div>
-                <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-              </div>
-            ))}
+            <div className="card p-8 md:p-10 animate-fade-in-up animation-delay-200">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Jsem tu pro dospělé, děti a dospívající, kteří se v životě cítí být něčím omezováni nebo se opakovaně dostávají do situací,
+                kterým chtějí lépe porozumět a umět s nimi efektivněji pracovat. Spolupracuji také s těmi, kteří se ocitli ve složité životní
+                situaci a potřebují se v ní zorientovat nebo se rozhodnout, jakým směrem se vydat. Rodičům dětí pak nabízím konzultace.{' '}
+                <Link href="/o-mně" className="text-primary-600 hover:text-primary-700 font-semibold transition-colors">
+                  Více informací o mně a způsobu mé práce najdete zde.
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>

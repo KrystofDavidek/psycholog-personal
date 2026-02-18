@@ -14,33 +14,18 @@ export const metadata: Metadata = {
 
 const education = [
   'Mgr. vzdělání v oboru Psychologie, Filosofická fakulta Univerzity Palackého v Olomouci',
-  'Výcvik v psychotraumatologii a EMDR (I. a II. stupeň) - Český institut pro psychotraumatologii a EMDR',
+  'Výcvik v metodě EMDR, úroveň I a II pro děti a dospívající - Český institut pro psychotraumatologii a EMDR',
   'Komplexní psychoterapeutický výcvik v somatické a hlubinně orientované psychoterapii - Biosyntéze; Český institut Biosyntézy z.s',
   'Kurz Školní psycholog na ZŠ a SŠ, Filosofická fakulta Univerzity Palackého v Olomouci',
   'Kurz Základní krizová intervence, Remedium Praha o. p. s. a další kurzy',
 ]
 
 const experience = [
-  {
-    title: 'Školní psycholog a práce s dětmi',
-    description: 'Psychologické poradenství, krizová intervence a individuální konzultace pro rodiče, učitele a žáky; práce se třídními kolektivy (ZŠ Hudcova, Brno; ZŠ a MŠ Deblín, Brno-venkov)',
-  },
-  {
-    title: 'Akademická činnost',
-    description: 'Externí vyučující na Pedagogické fakultě Masarykovy univerzity v Brně – spolupráce na výuce pedagogické psychologie pro budoucí učitele a speciální pedagogy',
-  },
-  {
-    title: 'Probační služba',
-    description: 'Individuální a rodinné poradenství pro mladistvé a jejich rodinné příslušníky; lektorování skupinových setkání zaměřených na zvládání agrese u mladistvých (Probační a mediační služba ČR)',
-  },
-  {
-    title: 'Specializace na ADHD',
-    description: 'Poradenství pro učitele žáků s ADHD; metodik a lektor preventivních programů pro třídní kolektivy s dětmi s ADHD; lektor kurzů sociálně-emočního učení pro děti s ADHD (Centrum pro rodinu a sociální péči, Brno)',
-  },
-  {
-    title: 'Lektorská činnost',
-    description: 'Lektor kurzů pro odborníky a rodiče (Terapie pod Špilberkem s.r.o.; Podané ruce o.p.s.)',
-  },
+  'Psychologické poradenství, krizová intervence a individuální konzultace pro rodiče, učitele a žáky; práce se třídními kolektivy (ZŠ Hudcova, Brno; ZŠ a MŠ Deblín, Brno-venkov)',
+  'Externí vyučující na Pedagogické fakultě Masarykovy univerzity v Brně – spolupráce na výuce pedagogické psychologie pro budoucí učitele a speciální pedagogy',
+  'Individuální a rodinné poradenství pro mladistvé a jejich rodinné příslušníky; lektorování skupinových setkání zaměřených na zvládání agrese u mladistvých (Probační a mediační služba ČR)',
+  'Poradenství pro učitele žáků s ADHD; metodik a lektor preventivních programů pro třídní kolektivy s dětmi s ADHD; lektor kurzů sociálně-emočního učení pro děti s ADHD (Centrum pro rodinu a sociální péči, Brno)',
+  'Lektor kurzů pro odborníky a rodiče (Terapie pod Špilberkem s.r.o.; Podané ruce o.p.s.)',
 ]
 
 export default function Practice() {
@@ -86,13 +71,11 @@ export default function Practice() {
                 <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8">
                   Praxe a další činnosti
                 </h2>
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {experience.map((item, index) => (
-                    <div key={index} className="card p-6 hover:shadow-medium transition-all duration-300">
-                      <h3 className="text-xl font-heading font-semibold text-primary-600 mb-3">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-700 leading-relaxed">{item.description}</p>
+                    <div key={index} className="card p-6 flex items-start group hover:shadow-medium transition-shadow duration-300">
+                      <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-4 flex-shrink-0 group-hover:scale-150 transition-transform duration-300"></div>
+                      <p className="text-gray-700 leading-relaxed">{item}</p>
                     </div>
                   ))}
                 </div>

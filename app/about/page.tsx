@@ -34,6 +34,7 @@ export default function About() {
               Vedle soukromé praxe pracuji jako školní psycholog na základní škole v Deblíně a externě vyučuji na pedagogické fakultě v Brně.
               Dlouhodobě se také věnuji dětem s ADHD, pro které jsem vedl i několik specializovaných programů zaměřených na sociálně-emoční učení,
               podporu jejich vztahů s vrstevníky a rozvoj pozitivních vzorců chování.
+              S dětmi využívám prvky terapie hrou, která je pro ně přirozenou a bezpečnou formou jejich rozvoje.
             </p>
           </div>
 
@@ -67,14 +68,11 @@ export default function About() {
             <div className="card p-8 animate-fade-in-up animation-delay-200">
               <IconPlaceholder variant="accent" className="mb-6" />
               <h2 className="text-2xl font-heading font-semibold text-gray-900 mb-4">
-                Metoda EMDR
+                Psychoterapie metodou EMDR
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Klientům také nabízím spolupráci prostřednictvím metody EMDR, která je integrativním a komplexním psychoterapeutickým
                 přístupem, pomáhající lidem zotavit se z problémů vyvolaných traumatickými událostmi v jejich životě a z nich vyplývajících obtíží.
-              </p>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                S dětmi využívám prvky terapie hrou, která je pro ně přirozenou a bezpečnou formou jejich rozvoje.
               </p>
               <a
                 href={EXTERNAL_LINKS.emdr}
