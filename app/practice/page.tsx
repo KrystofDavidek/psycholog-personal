@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 const education = [
   'Mgr. vzdělání v oboru Psychologie, Filosofická fakulta Univerzity Palackého v Olomouci',
   'Výcvik v metodě EMDR, úroveň I a II pro děti a dospívající - Český institut pro psychotraumatologii a EMDR',
+  'Výcvik v metodě EMDR, úroveň I a II pro dospělé - Český institut pro psychotraumatologii a EMDR',
   'Komplexní psychoterapeutický výcvik v somatické a hlubinně orientované psychoterapii - Biosyntéze; Český institut Biosyntézy z.s',
   'Kurz Školní psycholog na ZŠ a SŠ, Filosofická fakulta Univerzity Palackého v Olomouci',
   'Kurz Základní krizová intervence, Remedium Praha o. p. s. a další kurzy',
@@ -38,9 +39,6 @@ export default function Practice() {
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
               Má praxe
             </h1>
-            <p className="text-xl text-gray-600">
-              Profesní vzdělání, zkušenosti a oblasti specializace
-            </p>
           </div>
         </div>
       </div>

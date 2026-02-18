@@ -18,9 +18,6 @@ export default function ContactPageContent() {
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
               Kontakt
             </h1>
-            <p className="text-xl text-gray-600">
-              Pojďme se domluvit na setkání. Těším se na spolupráci s Vámi.
-            </p>
           </div>
         </div>
       </div>

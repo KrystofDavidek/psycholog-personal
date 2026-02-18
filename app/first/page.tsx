@@ -23,9 +23,6 @@ export default function First() {
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
               První setkání
             </h1>
-            <p className="text-xl text-gray-600">
-              Jak probíhá úvodní konzultace, cenové informace a podmínky spolupráce
-            </p>
           </div>
         </div>
       </div>
@@ -62,7 +59,7 @@ export default function First() {
                 </div>
 
                 <div className="border-l-4 border-secondary-500 pl-4">
-                  <p className="text-sm text-gray-600 mb-1">Vypracování psychologické zprávy</p>
+                  <p className="text-sm text-gray-600 mb-1">Vypracování zprávy ze spolupráce</p>
                   <p className="text-3xl font-bold text-secondary-600">1 400 Kč<span className="text-lg text-gray-500"> / normostrana</span></p>
                 </div>
               </div>

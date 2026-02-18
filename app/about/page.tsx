@@ -16,10 +16,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <>
-      <PageHeader
-        title="O mně"
-        subtitle="Pojďte se se mnou blíže seznámit a dozvědět se více o mé práci a přístupech, které používám"
-      />
+      <PageHeader title="O mně" />
 
       {/* Main Content */}
       <div className="bg-white section">
