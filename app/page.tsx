@@ -65,6 +65,7 @@ export default function Home() {
                     <div className="relative">
                       <Image
                         placeholder="blur"
+                        priority
                         height={400}
                         width={400}
                         src={ProfileImg}

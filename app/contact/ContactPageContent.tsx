@@ -90,6 +90,7 @@ export default function ContactPageContent() {
                   <Image
                     src={Map}
                     placeholder="blur"
+                    priority
                     alt="Mapa - Terapie pod Špilberkem, Brno"
                     fill
                     style={{ objectFit: 'cover', objectPosition: 'center' }}
