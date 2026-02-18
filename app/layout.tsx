@@ -1,8 +1,22 @@
 import type { Metadata } from 'next'
+import { Inter, Poppins } from 'next/font/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import './globals.css'
+
+const inter = Inter({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const poppins = Poppins({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-poppins',
+  display: 'swap',
+})
 
 const CITATION = `„Jsme předurčeni k tomu být šťastní i v nedokonalém světě."`
 
@@ -50,7 +64,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="cs" suppressHydrationWarning>
+    <html lang="cs" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
       <head>
         <link
           rel="preload"
